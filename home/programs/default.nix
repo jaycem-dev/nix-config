@@ -3,20 +3,16 @@
     ./nixvim
     ./niri
     ./stylix
-    ./waybar
     ./noctalia.nix
     ./beets.nix
     ./browser.nix
     ./desktop-items.nix
     ./dev.nix
-    ./fuzzel.nix
     ./gaming.nix
     ./sh.nix
-    ./swaylock.nix
     ./terminal.nix
     ./tmux.nix
     ./yazi.nix
-    ./helix.nix
   ];
 
   programs = {
@@ -52,19 +48,16 @@
 
   home.packages = with pkgs; [
     # cli
-    bluetui
     brightnessctl
     ddcutil
     exfatprogs
     ffmpeg
     fwupd
     imagemagick
-    impala
     libnotify
     tealdeer
     trash-cli
     unrar
-    wiremix
     wl-clipboard
 
     # style
@@ -78,6 +71,7 @@
     # fonts
     dejavu_fonts
     font-awesome
+    geist-font
     jetbrains-mono
     liberation_ttf
     nerd-fonts.symbols-only
@@ -91,7 +85,6 @@
     gimp
     proton-vpn
     jellyfin-desktop
-    smassh
     kopuz
     libreoffice
     localsend

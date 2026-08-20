@@ -156,7 +156,7 @@
     };
     "Mod+Space" = {
       _props.hotkey-overlay-title = "Launcher";
-      "spawn" = "fuzzel";
+      "spawn" = ["noctalia" "msg" "panel-toggle" "launcher"];
     };
     "Mod+Slash" = {
       _props.hotkey-overlay-title = "Quick access terminal";

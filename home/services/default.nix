@@ -1,12 +1,7 @@
 {
-  imports = [
-    ./mako.nix
-    # ./polkit.nix
-    ./hypridle.nix
-  ];
+  imports = [];
 
   services = {
-    wpaperd.enable = false;
     udiskie.enable = true;
     playerctld.enable = true;
 

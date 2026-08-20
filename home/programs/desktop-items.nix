@@ -30,22 +30,6 @@
       exec = "kitty --app-id lazygit lazygit";
       icon = "git";
     };
-    "bluetui" = {
-      name = "Bluetui (bluetooth settings)";
-      exec = "kitty --app-id bluetui bluetui";
-      icon = "preferences-bluetooth";
-    };
-    "impala" = {
-      name = "Impala (wifi settings)";
-      exec = "kitty --app-id impala impala";
-      icon = "nm-device-wireless";
-    };
-    "neovim" = {
-      name = "Neovim";
-      exec = "kitty --app-id neovim neovim";
-      icon = "nvim";
-      noDisplay = true;
-    };
     "opencode" = {
       name = "OpenCode";
       exec = "kitty --app-id opencode opencode";
