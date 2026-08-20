@@ -4,7 +4,6 @@ pkgs.writeShellApplication {
 
   runtimeInputs = with pkgs; [
     libnotify
-    brightnessctl
     ddcutil
   ];
 
@@ -13,7 +12,7 @@ pkgs.writeShellApplication {
         cat <<EOF
     Usage: $(basename "$0") up|down [step]
 
-    Adjust internal and external display brightness and notify with percentage.
+    Adjust external display brightness and notify with percentage.
 
     Commands:
       up               Increase brightness
@@ -48,10 +47,8 @@ pkgs.writeShellApplication {
 
     if [ "$1" = "up" ]; then
         ext_op="+"
-        int_op="+''${step}%"
     else
         ext_op="-"
-        int_op="''${step}%-"
     fi
 
     for disp in $(ddcutil detect --terse --sleep-multiplier 0.1 | grep -oP 'Display \K\d+'); do
@@ -64,14 +61,6 @@ pkgs.writeShellApplication {
             echo "Warning: failed to adjust external display $disp via ddcutil" >&2
         fi
     done
-
-    if brightnessctl --class=backlight set "$int_op" >/dev/null 2>&1; then
-        current=$(brightnessctl --class=backlight get)
-        max=$(brightnessctl --class=backlight max)
-        percent=$((current * 100 / max))
-    else
-        echo "Warning: failed to adjust internal display via brightnessctl" >&2
-    fi
 
     if [ -n "$percent" ]; then
         notify-send -c osd -h string:x-canonical-private-synchronous:osd -h int:value:"''${percent}" " $percent%"

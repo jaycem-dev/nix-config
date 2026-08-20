@@ -43,14 +43,39 @@
     "XF86AudioStop"."spawn" = ["playerctl" "stop"];
     "XF86AudioPrev"."spawn" = ["playerctl" "previous"];
     "XF86AudioNext"."spawn" = ["playerctl" "next"];
-    "XF86MonBrightnessUp"."spawn" = ["brightness" "up"];
-    "XF86MonBrightnessDown"."spawn" = ["brightness" "down"];
-    "Ctrl+XF86MonBrightnessUp"."spawn" = ["brightness" "up" "2"];
-    "Ctrl+XF86MonBrightnessDown"."spawn" = ["brightness" "down" "2"];
-    "Shift+XF86MonBrightnessUp"."spawn" = ["brightness" "up" "20"];
-    "Shift+XF86MonBrightnessDown"."spawn" = ["brightness" "down" "20"];
-    "Mod+XF86MonBrightnessUp"."spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "+25%"];
-    "Mod+XF86MonBrightnessDown"."spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "25%-"];
+
+    "XF86MonBrightnessUp" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightnessctl" "--class=backlight" "set" "+5%"];
+    };
+    "XF86MonBrightnessDown" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightnessctl" "--class=backlight" "set" "5%-"];
+    };
+    "Ctrl+XF86MonBrightnessUp" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightnessctl" "--class=backlight" "set" "+1%"];
+    };
+    "Ctrl+XF86MonBrightnessDown" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightnessctl" "--class=backlight" "set" "1%-"];
+    };
+    "Shift+XF86MonBrightnessUp" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightness" "up"];
+    };
+    "Shift+XF86MonBrightnessDown" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightness" "down"];
+    };
+    "Mod+XF86MonBrightnessUp" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "+25%"];
+    };
+    "Mod+XF86MonBrightnessDown" = {
+      _props.allow-when-locked = true;
+      "spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "25%-"];
+    };
 
     "Mod+Comma"."consume-or-expel-window-left" = {};
     "Mod+Period"."consume-or-expel-window-right" = {};
@@ -123,7 +148,7 @@
 
     "Mod+P" = {
       _props.hotkey-overlay-title = "Power menu";
-      "spawn" = "dmenu-power";
+      "spawn" = ["noctalia" "msg" "panel-toggle" "session"];
     };
     "Mod+D" = {
       _props.hotkey-overlay-title = "Dismiss notification";
@@ -135,14 +160,14 @@
     };
     "Mod+Slash" = {
       _props.hotkey-overlay-title = "Quick access terminal";
-      "spawn" = ["kitten" "quick-access-terminal" "tmux" "a"];
+      "spawn" = ["kitten" "quick-access-terminal"];
     };
     "Mod+G" = {
       _props.hotkey-overlay-title = "Toggle global window (pin)";
       "spawn" = ["nirius" "toggle-follow-mode"];
     };
 
-    # todo: loop this
+    # TODO: loop this
     "Mod+1"."focus-workspace" = 1;
     "Mod+2"."focus-workspace" = 2;
     "Mod+3"."focus-workspace" = 3;
