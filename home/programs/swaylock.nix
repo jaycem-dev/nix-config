@@ -1,6 +1,6 @@
 {
   programs.swaylock = {
-    enable = true;
+    enable = false;
 
     settings = {
       ignore-empty-password = true;

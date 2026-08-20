@@ -4,6 +4,7 @@
     ./niri
     ./stylix
     ./waybar
+    ./noctalia.nix
     ./beets.nix
     ./browser.nix
     ./desktop-items.nix

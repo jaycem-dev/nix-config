@@ -6,7 +6,7 @@
   imports = [./style.nix ./modules.nix];
 
   programs.waybar = {
-    enable = true;
+    enable = false;
     # todo: move this to an overlay
     package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default;
     systemd.enable = true;
