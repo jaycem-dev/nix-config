@@ -25,19 +25,19 @@
     # media keys
     "XF86AudioRaiseVolume" = {
       _props.allow-when-locked = true;
-      "spawn" = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" "-l" "1.0"];
+      "spawn" = ["noctalia" "msg" "volume-up"];
     };
     "XF86AudioLowerVolume" = {
       _props.allow-when-locked = true;
-      "spawn" = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"];
+      "spawn" = ["noctalia" "msg" "volume-down"];
     };
     "XF86AudioMute" = {
       _props.allow-when-locked = true;
-      "spawn" = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"];
+      "spawn" = ["noctalia" "msg" "volume-mute"];
     };
     "XF86AudioMicMute" = {
       _props.allow-when-locked = true;
-      "spawn" = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"];
+      "spawn" = ["noctalia" "msg" "mic-mute"];
     };
     "XF86AudioPlay"."spawn" = ["playerctl" "play-pause"];
     "XF86AudioStop"."spawn" = ["playerctl" "stop"];
@@ -46,35 +46,27 @@
 
     "XF86MonBrightnessUp" = {
       _props.allow-when-locked = true;
-      "spawn" = ["brightnessctl" "--class=backlight" "set" "+5%"];
+      "spawn" = ["noctalia" "msg" "brightness-up"];
     };
     "XF86MonBrightnessDown" = {
       _props.allow-when-locked = true;
-      "spawn" = ["brightnessctl" "--class=backlight" "set" "5%-"];
+      "spawn" = ["noctalia" "msg" "brightness-down"];
     };
     "Ctrl+XF86MonBrightnessUp" = {
       _props.allow-when-locked = true;
-      "spawn" = ["brightnessctl" "--class=backlight" "set" "+1%"];
+      "spawn" = ["noctalia" "msg" "brightness-up" "2"];
     };
     "Ctrl+XF86MonBrightnessDown" = {
       _props.allow-when-locked = true;
-      "spawn" = ["brightnessctl" "--class=backlight" "set" "1%-"];
-    };
-    "Shift+XF86MonBrightnessUp" = {
-      _props.allow-when-locked = true;
-      "spawn" = ["brightness" "up"];
-    };
-    "Shift+XF86MonBrightnessDown" = {
-      _props.allow-when-locked = true;
-      "spawn" = ["brightness" "down"];
+      "spawn" = ["noctalia" "msg" "brightness-down" "2"];
     };
     "Mod+XF86MonBrightnessUp" = {
       _props.allow-when-locked = true;
-      "spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "+25%"];
+      "spawn" = ["noctalia" "msg" "keyboard-backlight-up"];
     };
     "Mod+XF86MonBrightnessDown" = {
       _props.allow-when-locked = true;
-      "spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "25%-"];
+      "spawn" = ["noctalia" "msg" "keyboard-backlight-down"];
     };
 
     "Mod+Comma"."consume-or-expel-window-left" = {};
