@@ -32,5 +32,5 @@ The pkg [nh](https://github.com/nix-community/nh) is configured to use `~/Projec
 ## Software
 
 - Compositor and tools: Niri, Noctalia
-- Main programs: Neovim, Kitty, Yazi
+- Main programs: Neovim, Nushell, Kitty, Yazi
 - Theming: Stylix
