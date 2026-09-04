@@ -7,7 +7,6 @@
     ./beets.nix
     ./browser.nix
     ./desktop-items.nix
-    ./dev.nix
     ./gaming.nix
     ./sh.nix
     ./terminal.nix
@@ -15,5 +14,6 @@
     ./yazi.nix
     ./apps.nix
     ./cli.nix
+    ./ai.nix
   ];
 }
