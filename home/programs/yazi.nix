@@ -15,7 +15,6 @@ in {
       (mkKeymap ["<Space>" "/"] "search --via=rg" "Grep (rg)")
       (mkKeymap ["<Space>" "f"] "plugin fzf" "Find file/directory (fzf)")
       (mkKeymap ["<Space>" "h"] "help" "Help")
-      (mkKeymap ["<Space>" "w"] "shell --orphan -- set-wallpaper %H" "Set wallpaper")
     ];
   };
 }

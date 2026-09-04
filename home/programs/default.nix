@@ -1,17 +1,15 @@
 {
   imports = [
+    ./noctalia.nix
     ./nixvim
     ./niri
     ./stylix
-    ./waybar
     ./beets.nix
     ./browser.nix
     ./desktop-items.nix
     ./dev.nix
-    ./fuzzel.nix
     ./gaming.nix
     ./sh.nix
-    ./swaylock.nix
     ./terminal.nix
     ./tmux.nix
     ./yazi.nix

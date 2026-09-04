@@ -22,19 +22,21 @@
     "Mod+Shift+Minus"."set-window-height" = "-10%";
     "Mod+Shift+Equal"."set-window-height" = "+10%";
 
-    # media keys
-    "XF86AudioRaiseVolume"."spawn" = ["volume" "up"];
-    "XF86AudioLowerVolume"."spawn" = ["volume" "down"];
-    "XF86AudioMute"."spawn" = ["volume" "mute"];
-    "XF86AudioMicMute"."spawn" = ["volume" "micmute"];
+    # media keys - noctalia ipc (https://docs.noctalia.dev/noctalia/ipc/system-controls/)
+    "XF86AudioRaiseVolume"."spawn" = ["noctalia" "msg" "volume-up"];
+    "XF86AudioLowerVolume"."spawn" = ["noctalia" "msg" "volume-down"];
+    "XF86AudioMute"."spawn" = ["noctalia" "msg" "volume-mute"];
+    "XF86AudioMicMute"."spawn" = ["noctalia" "msg" "mic-mute"];
+    "Ctrl+XF86AudioRaiseVolume"."spawn" = ["noctalia" "msg" "volume-up" "1"];
+    "Ctrl+XF86AudioLowerVolume"."spawn" = ["noctalia" "msg" "volume-down" "1"];
     "XF86AudioPlay"."spawn" = ["playerctl" "play-pause"];
     "XF86AudioStop"."spawn" = ["playerctl" "stop"];
     "XF86AudioPrev"."spawn" = ["playerctl" "previous"];
     "XF86AudioNext"."spawn" = ["playerctl" "next"];
-    "XF86MonBrightnessUp"."spawn" = ["brightness" "up"];
-    "XF86MonBrightnessDown"."spawn" = ["brightness" "down"];
-    "Ctrl+XF86MonBrightnessUp"."spawn" = ["brightness" "up" "1"];
-    "Ctrl+XF86MonBrightnessDown"."spawn" = ["brightness" "down" "1"];
+    "XF86MonBrightnessUp"."spawn" = ["noctalia" "msg" "brightness-up"];
+    "XF86MonBrightnessDown"."spawn" = ["noctalia" "msg" "brightness-down"];
+    "Ctrl+XF86MonBrightnessUp"."spawn" = ["noctalia" "msg" "brightness-up" "1"];
+    "Ctrl+XF86MonBrightnessDown"."spawn" = ["noctalia" "msg" "brightness-down" "1"];
     "Mod+XF86MonBrightnessUp"."spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "+25%"];
     "Mod+XF86MonBrightnessDown"."spawn" = ["brightnessctl" "-q" "-d" "kbd_backlight" "s" "25%-"];
 
@@ -109,15 +111,11 @@
 
     "Mod+P" = {
       _props.hotkey-overlay-title = "Power menu";
-      "spawn" = "dmenu-power";
-    };
-    "Mod+D" = {
-      _props.hotkey-overlay-title = "Dismiss notification";
-      "spawn" = ["makoctl" "dismiss"];
+      "spawn" = ["noctalia" "msg" "panel-toggle" "session"];
     };
     "Mod+Space" = {
       _props.hotkey-overlay-title = "Launcher";
-      "spawn" = "fuzzel";
+      "spawn" = ["noctalia" "msg" "panel-toggle" "launcher"];
     };
     "Mod+Slash" = {
       _props.hotkey-overlay-title = "Quick access terminal";
