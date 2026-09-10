@@ -1,83 +1,61 @@
-{ pkgs, ... }: {
-  imports = [
-    ./colors.nix
-    ./binds.nix
-    ./rules.nix
-  ];
-
+{
+  pkgs,
+  config,
+  flakePath,
+  ...
+}:
+{
   home.packages = with pkgs; [ xwayland-satellite ];
 
   wayland.windowManager.niri = {
     enable = true;
-    settings = {
-      blur.offset = 10; # default 3
-      prefer-no-csd = true;
-      gestures.hot-corners.off = { };
-
-      _children = [
-        { workspace._args = [ "browser" ]; }
-        { workspace._args = [ "dev" ]; }
-        { workspace._args = [ "media" ]; }
-        { workspace._args = [ "chat" ]; }
-        { workspace._args = [ "gaming" ]; }
-
-        {
-          spawn-at-startup = [
-            "kitty"
-            "--start-as=hidden"
-          ];
-        }
-
-        {
-          output = {
-            _args = [ "HDMI-A-1" ];
-            mode = "1920x1080@71.910";
-          };
-        }
-        {
-          output = {
-            _args = [ "eDP-1" ];
-            scale = 1.7;
-          };
-        }
-      ];
-
-      cursor = {
-        hide-after-inactive-ms = 5000;
-        hide-when-typing = true;
-      };
-
-      input = {
-        focus-follows-mouse._props = {
-          max-scroll-amount = "10%";
-        };
-        keyboard.xkb = {
-          layout = "us";
-          variant = "colemak_dh_iso";
-          options = "caps:escape";
-        };
-
-        touchpad = {
-          dwt = { };
-          natural-scroll = { };
-          accel-speed = 0.1;
-        };
-      };
+    settings = with config.lib.stylix.colors.withHashtag; {
+      overview.backdrop-color = base00;
 
       layout = {
-        gaps = 5;
-        default-column-width.proportion = 0.5;
-        always-center-single-column = { };
+        background-color = base00;
+        shadow.color = "${base00}70";
+        insert-hint.color = "${base0C}80";
 
-        preset-column-widths._children = [
-          { proportion = 0.5; }
-          { proportion = 0.66667; }
-        ];
-        preset-window-heights._children = [
-          { proportion = 0.5; }
-          { proportion = 0.33333; }
-        ];
+        focus-ring = {
+          active-color = base0D;
+          inactive-color = base02;
+          urgent-color = base08;
+        };
+
+        border = {
+          active-color = base0D;
+          inactive-color = base02;
+          urgent-color = base08;
+        };
+
+        tab-indicator = {
+          active-color = base0D;
+          inactive-color = base02;
+          urgent-color = base08;
+        };
       };
+
+      recent-windows.highlight = {
+        active-color = base0D;
+        urgent-color = base08;
+      };
+
+      _children = [
+        {
+          window-rule._children = [
+            { geometry-corner-radius = config.userSettings.theme.borderRadius; }
+            { clip-to-geometry = true; }
+          ];
+        }
+      ];
     };
+
+    extraConfig = ''
+      include optional=true "main.kdl"
+    '';
   };
+
+  xdg.configFile."niri/main.kdl".source =
+    config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/programs/niri/main.kdl";
 }

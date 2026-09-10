@@ -25,7 +25,8 @@
     { nixpkgs, ... }@inputs:
     let
       user = "jay";
-      commonArgs = { inherit inputs user; };
+      flakePath = "/home/${user}/Projects/nix-config";
+      commonArgs = { inherit inputs user flakePath; };
 
       systems = {
         linux-arm = "aarch64-linux";
