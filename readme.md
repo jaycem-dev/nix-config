@@ -4,8 +4,11 @@ My setup for NixOS, Home Manager (standalone) and Nixvim
 
 I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboard.nix](./nixos/services/default.nix) and [niri.kdl](./home/programs/niri/default.nix).
 
-> [!IMPORTANT]
+> [!NOTE]
 > New NixOS installs usually require copying `/etc/nixos/hardware-configuration.nix` to the host directory or you won't be able to boot.
+
+> [!WARNING]
+> Some options (out-of-store symlinks, `nh.flake`) expect the flake at `~/Projects/nix-config` via `flakePath` in [flake.nix](./flake.nix). If you clone elsewhere, update that arg.
 
 ## Install
 
@@ -18,7 +21,7 @@ Choose a `<host>` from one of the values below. (See my current configurations i
 
 ```bash
 # Clone this repo using nix-shell:
-nix-shell -p git neovim --command "git clone https://github.com/jaycem-dev/nix ~/Projects/nix && cd ~/Projects/nix; return"
+nix-shell -p git neovim --command "git clone https://github.com/jaycem-dev/nix-config ~/Projects/nix-config && cd ~/Projects/nix-config; return"
 
 # Modify config if necessary, then rebuild:
 sudo nixos-rebuild switch --flake .#<host>
