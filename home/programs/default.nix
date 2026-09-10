@@ -3,14 +3,12 @@
     ./nixvim
     ./niri
     ./stylix
-    ./waybar
-    ./fuzzel.nix
+    ./noctalia.nix
     ./beets.nix
     ./browser.nix
     ./desktop-items.nix
     ./gaming.nix
     ./sh.nix
-    ./swaylock.nix
     ./terminal.nix
     ./tmux.nix
     ./yazi.nix
