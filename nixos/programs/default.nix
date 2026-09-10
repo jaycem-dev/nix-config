@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  user,
+  flakePath,
   ...
 }:
 {
@@ -16,7 +16,7 @@
 
     nh = {
       enable = true;
-      flake = "/home/${user}/Projects/nix-config";
+      flake = flakePath;
       clean = {
         enable = true;
         extraArgs = "--keep 2";
