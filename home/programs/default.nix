@@ -1,21 +1,8 @@
 {
   imports = [
-    ./nixvim
     ./niri
-    ./stylix
     ./waybar
     ./fuzzel.nix
-    ./beets.nix
-    ./browser.nix
-    ./desktop-items.nix
-    ./gaming.nix
-    ./sh.nix
     ./swaylock.nix
-    ./terminal.nix
-    ./tmux.nix
-    ./yazi.nix
-    ./apps.nix
-    ./cli.nix
-    ./ai.nix
   ];
 }
