@@ -5,7 +5,10 @@
     ./rules.nix
   ];
 
-  home.packages = with pkgs; [ xwayland-satellite ];
+  home.packages = with pkgs; [
+    xwayland-satellite
+    nirius
+  ];
 
   wayland.windowManager.niri = {
     enable = true;
@@ -26,6 +29,9 @@
             "kitty"
             "--start-as=hidden"
           ];
+        }
+        {
+          spawn-at-startup = "niriusd";
         }
 
         {

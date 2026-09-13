@@ -9,7 +9,7 @@
 
       focus-ring = {
         off = { };
-        width = 2;
+        width = 3;
         active-color = base0D;
         inactive-color = base02;
         urgent-color = base08;
@@ -17,7 +17,7 @@
 
       border = {
         on = { };
-        width = 2;
+        width = 3;
         active-color = base0D;
         inactive-color = base02;
         urgent-color = base08;

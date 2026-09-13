@@ -221,6 +221,13 @@
       _props.hotkey-overlay-title = "Launcher";
       "spawn" = "fuzzel";
     };
+    "Mod+G" = {
+      _props.hotkey-overlay-title = "Toggle global window";
+      "spawn" = [
+        "nirius"
+        "toggle-follow-mode"
+      ];
+    };
     "Mod+Slash" = {
       _props.hotkey-overlay-title = "Quick access terminal";
       "spawn" = [
