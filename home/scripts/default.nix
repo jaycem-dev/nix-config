@@ -13,15 +13,20 @@
       name = "dmenu-projects";
       text = builtins.readFile ./dmenu-projects.sh;
       runtimeInputs = with pkgs; [
+        fd
         kitty
         fuzzel
       ];
     })
 
     (pkgs.writeShellApplication {
-      name = "launch-or-focus";
-      text = builtins.readFile ./launch-or-focus.sh;
-      runtimeInputs = with pkgs; [ jq ];
+      name = "spawn-or-focus";
+      text = builtins.readFile ./spawn-or-focus.sh;
+      runtimeInputs = with pkgs; [
+        kitty
+        jq
+        brave-origin
+      ];
     })
 
     (pkgs.writeShellApplication {

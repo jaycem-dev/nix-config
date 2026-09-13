@@ -56,7 +56,7 @@
       format-ethernet = "󰈀";
       format-linked = "󱎔";
       format-disconnected = "󰀦";
-      on-click = "launch-or-focus --tui impala";
+      on-click = "spawn-or-focus tui impala";
     };
 
     idle_inhibitor = {
@@ -71,7 +71,7 @@
       format = "󰂯";
       format-off = "󰂲";
       format-connected = "󰂰";
-      on-click = "launch-or-focus --tui bluetui";
+      on-click = "spawn-or-focus tui bluetui";
     };
   };
 }
