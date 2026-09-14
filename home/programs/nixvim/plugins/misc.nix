@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   mkKeymap = (import ../lib/binds.nix).mkKeymap;
   mkRawKeymap = (import ../lib/binds.nix).mkRawKeymap;
@@ -39,6 +40,12 @@ in
       };
     };
   };
+
+  extraPlugins = with pkgs.vimPlugins; [ tabout-nvim ];
+
+  extraConfigLua = ''
+    require('tabout').setup {}
+  '';
 
   keymaps = [
     (mkKeymap "n" "<leader>gg" "<cmd>Neogit<cr>" { desc = "Open Neogit"; })
