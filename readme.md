@@ -18,7 +18,7 @@ Choose a `<host>` from one of the values below. (See my current configurations i
 
 ```bash
 # Clone this repo using nix-shell:
-nix-shell -p git neovim --command "git clone https://github.com/jaycem-dev/nix ~/Projects/nix && cd ~/Projects/nix; return"
+nix-shell -p git neovim --command "git clone https://github.com/jaycem-dev/nix-config ~/Projects/nix-config && cd ~/Projects/nix-config; return"
 
 # Modify config if necessary, then rebuild:
 sudo nixos-rebuild switch --flake .#<host>
