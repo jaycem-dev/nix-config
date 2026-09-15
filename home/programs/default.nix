@@ -1,6 +1,6 @@
 {
   imports = [
-    ./nixvim
+    ./neovim
     ./niri
     ./stylix
     ./waybar

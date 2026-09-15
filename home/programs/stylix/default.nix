@@ -39,7 +39,7 @@ in
 
     targets = {
       qt.enable = true; # disabled on hm standalone
-      nixvim.enable = !(theme ? nixvim); # use nixvim colorscheme when set
+      # nixvim.enable = !(theme ? nixvim); # use nixvim colorscheme when set
     };
 
     opacity = {
@@ -86,5 +86,5 @@ in
   };
 
   # stylix themes can optionally define a nixvim colorscheme instead of base16
-  config.programs.nixvim = lib.optionalAttrs (theme ? nixvim) theme.nixvim;
+  # config.programs.nixvim = lib.optionalAttrs (theme ? nixvim) theme.nixvim;
 }
