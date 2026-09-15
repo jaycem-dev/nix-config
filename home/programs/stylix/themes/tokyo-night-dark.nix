@@ -22,4 +22,12 @@
     url = "https://w.wallhaven.cc/full/p8/wallhaven-p88lvp.jpg";
     hash = "sha256-GSV1fEwV4p1e0f72cyGhKuOKGWDSvbhejJOSuEYQweI=";
   };
+
+  neovim = {
+    plugin = "tokyonight-nvim";
+    config = ''
+      require("tokyonight").setup({ style = "night", transparent = true })
+      vim.cmd.colorscheme("tokyonight-night")
+    '';
+  };
 }

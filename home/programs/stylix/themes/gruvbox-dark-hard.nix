@@ -22,4 +22,16 @@
     url = "https://github.com/AngelJumbo/gruvbox-wallpapers/blob/main/wallpapers/photography/forest-2.jpg?raw=true";
     hash = "sha256-RqzCCnn4b5kU7EYgaPF19Gr9I5cZrkEdsTu+wGaaMFI=";
   };
+
+  neovim = {
+    plugin = "gruvbox-nvim";
+    config = ''
+      require("gruvbox").setup({
+        contrast = "hard",
+        transparent_mode = true,
+        italic = { strings = false, emphasis = false, comments = false, folds = false },
+      })
+      vim.cmd.colorscheme("gruvbox")
+    '';
+  };
 }
