@@ -51,5 +51,10 @@
     unrar
     wiremix
     wl-clipboard
+    nixfmt
+    alejandra
+    nixd
+    stylua
+    lua-language-server
   ];
 }
