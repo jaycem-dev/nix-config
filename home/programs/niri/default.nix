@@ -5,10 +5,7 @@
     ./rules.nix
   ];
 
-  home.packages = with pkgs; [
-    xwayland-satellite
-    nirius
-  ];
+  home.packages = with pkgs; [ nirius ];
 
   wayland.windowManager.niri = {
     enable = true;
@@ -71,7 +68,7 @@
       layout = {
         gaps = 8;
         border.off = { };
-        focus-ring.width = 3;
+        focus-ring.width = 2;
         always-center-single-column = { };
 
         preset-column-widths._children = [
