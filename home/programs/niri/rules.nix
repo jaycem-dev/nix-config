@@ -71,6 +71,22 @@
       ];
     }
 
+    # Scratchpad terminal
+    {
+      window-rule._children = [
+        { match._props.app-id = "^scratchpad$"; }
+        { open-floating = true; }
+        { default-column-width.proportion = 0.9; }
+        { default-window-height.proportion = 0.9; }
+        { shadow.on = { }; }
+        {
+          background-effect = {
+            xray = false;
+          };
+        }
+      ];
+    }
+
     # Block out from screen capture
     {
       window-rule._children = [

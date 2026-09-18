@@ -201,12 +201,8 @@
     "Mod+T" = {
       _props.hotkey-overlay-title = "Terminal";
       "spawn" = [
-        "spawn-or-focus"
-        "app"
         "kitty"
         "-1"
-        "--id"
-        "kitty"
       ];
     };
 
@@ -230,6 +226,12 @@
       "spawn" = [
         "nirius"
         "toggle-follow-mode"
+      ];
+    };
+    "Mod+S" = {
+      _props.hotkey-overlay-title = "Scratchpad terminal";
+      "spawn" = [
+        "scratchpad-terminal"
       ];
     };
     "Mod+Slash" = {

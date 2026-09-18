@@ -30,6 +30,17 @@
     })
 
     (pkgs.writeShellApplication {
+      name = "scratchpad-terminal";
+      text = builtins.readFile ./scratchpad-terminal.sh;
+      runtimeInputs = with pkgs; [
+        niri
+        nirius
+        kitty
+        jq
+      ];
+    })
+
+    (pkgs.writeShellApplication {
       name = "brightness";
       text = builtins.readFile ./brightness.sh;
       runtimeInputs = with pkgs; [
