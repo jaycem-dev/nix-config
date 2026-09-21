@@ -5,7 +5,7 @@
     ./rules.nix
   ];
 
-  home.packages = with pkgs; [ xwayland-satellite ];
+  home.packages = with pkgs; [ nirius ];
 
   wayland.windowManager.niri = {
     enable = true;
@@ -26,6 +26,9 @@
             "kitty"
             "--start-as=hidden"
           ];
+        }
+        {
+          spawn-at-startup = "niriusd";
         }
 
         {
@@ -48,9 +51,8 @@
       };
 
       input = {
-        focus-follows-mouse._props = {
-          max-scroll-amount = "10%";
-        };
+        focus-follows-mouse._props.max-scroll-amount = "10%";
+
         keyboard.xkb = {
           layout = "us";
           variant = "colemak_dh_iso";
@@ -60,13 +62,13 @@
         touchpad = {
           dwt = { };
           natural-scroll = { };
-          accel-speed = 0.1;
         };
       };
 
       layout = {
-        gaps = 5;
-        default-column-width.proportion = 0.5;
+        gaps = 8;
+        border.off = { };
+        focus-ring.width = 2;
         always-center-single-column = { };
 
         preset-column-widths._children = [

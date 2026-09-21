@@ -23,5 +23,10 @@
     hash = "sha256-SGNbcGO/5XEiAVrbhjB+24352rFwUisV0cRTPQhH3eA=";
   };
 
-  nixvim.colorschemes.oxocarbon.enable = true;
+  neovim = {
+    plugin = "oxocarbon-nvim";
+    config = ''
+      vim.cmd.colorscheme("oxocarbon")
+    '';
+  };
 }

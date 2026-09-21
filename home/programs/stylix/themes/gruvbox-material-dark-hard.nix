@@ -23,11 +23,11 @@
     hash = "sha256-RqzCCnn4b5kU7EYgaPF19Gr9I5cZrkEdsTu+wGaaMFI=";
   };
 
-  nixvim.colorschemes.gruvbox-material-nvim = {
-    enable = true;
-    settings = {
-      contrast = "hard";
-      background.transparent = true;
-    };
+  neovim = {
+    plugin = "gruvbox-material-nvim";
+    config = ''
+      require("gruvbox-material").setup({ contrast = "hard", background = { transparent = true } })
+      vim.cmd.colorscheme("gruvbox-material")
+    '';
   };
 }

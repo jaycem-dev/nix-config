@@ -39,7 +39,7 @@ in
 
     targets = {
       qt.enable = true; # disabled on hm standalone
-      nixvim.enable = !(theme ? nixvim); # use nixvim colorscheme when set
+      neovim.enable = !(theme ? neovim); # use theme colorscheme when set
     };
 
     opacity = {
@@ -85,6 +85,9 @@ in
     };
   };
 
-  # stylix themes can optionally define a nixvim colorscheme instead of base16
-  config.programs.nixvim = lib.optionalAttrs (theme ? nixvim) theme.nixvim;
+  # stylix themes can optionally define a neovim colorscheme instead of base16
+  config.programs.neovim = lib.optionalAttrs (theme ? neovim) {
+    plugins = [ pkgs.vimPlugins.${theme.neovim.plugin} ];
+    initLua = theme.neovim.config;
+  };
 }

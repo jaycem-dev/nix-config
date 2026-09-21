@@ -23,11 +23,11 @@
     hash = "sha256-67TRNxMCNlOAy/EzlXQqDzYqXKY0QCIwUrJMWbLvtTo=";
   };
 
-  nixvim.colorschemes.rose-pine = {
-    enable = true;
-    settings = {
-      variant = "main";
-      styles.transparency = true;
-    };
+  neovim = {
+    plugin = "rose-pine";
+    config = ''
+      require("rose-pine").setup({ variant = "main", styles = { transparency = true } })
+      vim.cmd.colorscheme("rose-pine")
+    '';
   };
 }

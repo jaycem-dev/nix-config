@@ -117,49 +117,51 @@
     "Mod+Y" = {
       _props.hotkey-overlay-title = "Youtube";
       "spawn" = [
-        "launch-or-focus"
-        "--webapp"
+        "spawn-or-focus"
+        "webapp"
         "www.youtube.com"
       ];
     };
     "Mod+Shift+M" = {
       _props.hotkey-overlay-title = "Mail";
       "spawn" = [
-        "launch-or-focus"
-        "--webapp"
+        "spawn-or-focus"
+        "webapp"
         "mail.proton.me"
       ];
     };
     "Mod+M" = {
       _props.hotkey-overlay-title = "Music";
       "spawn" = [
-        "launch-or-focus"
-        "--webapp"
+        "spawn-or-focus"
+        "webapp"
         "open.spotify.com"
       ];
     };
     "Mod+W" = {
       _props.hotkey-overlay-title = "Whatsapp";
       "spawn" = [
-        "launch-or-focus"
-        "--webapp"
+        "spawn-or-focus"
+        "webapp"
         "web.whatsapp.com"
       ];
     };
     "Mod+B" = {
       _props.hotkey-overlay-title = "Browser";
       "spawn" = [
-        "launch-or-focus"
+        "spawn-or-focus"
+        "app"
         "brave-origin"
       ];
     };
     "Mod+A" = {
       _props.hotkey-overlay-title = "AI (OpenCode)";
       "spawn" = [
-        "launch-or-focus"
-        "--id"
-        "opencode"
+        "spawn-or-focus"
+        "app"
         "dmenu-projects"
+        "opencode"
+        "--id"
         "opencode"
       ];
     };
@@ -173,10 +175,11 @@
     "Mod+N" = {
       _props.hotkey-overlay-title = "Neovim";
       "spawn" = [
-        "launch-or-focus"
-        "--id"
-        "nvim"
+        "spawn-or-focus"
+        "app"
         "dmenu-projects"
+        "nvim"
+        "--id"
         "nvim"
       ];
     };
@@ -190,17 +193,14 @@
     "Mod+E" = {
       _props.hotkey-overlay-title = "File manager";
       "spawn" = [
-        "launch-or-focus"
-        "--tui"
+        "spawn-or-focus"
+        "tui"
         "yazi"
       ];
     };
     "Mod+T" = {
       _props.hotkey-overlay-title = "Terminal";
       "spawn" = [
-        "launch-or-focus"
-        "--id"
-        "kitty"
         "kitty"
         "-1"
       ];
@@ -221,6 +221,19 @@
       _props.hotkey-overlay-title = "Launcher";
       "spawn" = "fuzzel";
     };
+    "Mod+G" = {
+      _props.hotkey-overlay-title = "Toggle global window";
+      "spawn" = [
+        "nirius"
+        "toggle-follow-mode"
+      ];
+    };
+    "Mod+S" = {
+      _props.hotkey-overlay-title = "Scratchpad terminal";
+      "spawn" = [
+        "scratchpad-terminal"
+      ];
+    };
     "Mod+Slash" = {
       _props.hotkey-overlay-title = "Quick access terminal";
       "spawn" = [
@@ -229,7 +242,6 @@
       ];
     };
 
-    # TODO: loop this
     "Mod+1"."focus-workspace" = 1;
     "Mod+2"."focus-workspace" = 2;
     "Mod+3"."focus-workspace" = 3;

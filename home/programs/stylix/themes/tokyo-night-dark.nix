@@ -23,11 +23,11 @@
     hash = "sha256-GSV1fEwV4p1e0f72cyGhKuOKGWDSvbhejJOSuEYQweI=";
   };
 
-  nixvim.colorschemes.tokyonight = {
-    enable = true;
-    settings = {
-      style = "night";
-      transparent = true;
-    };
+  neovim = {
+    plugin = "tokyonight-nvim";
+    config = ''
+      require("tokyonight").setup({ style = "night", transparent = true })
+      vim.cmd.colorscheme("tokyonight-night")
+    '';
   };
 }

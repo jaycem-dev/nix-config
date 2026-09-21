@@ -23,11 +23,11 @@
     hash = "sha256-67TRNxMCNlOAy/EzlXQqDzYqXKY0QCIwUrJMWbLvtTo=";
   };
 
-  nixvim.colorschemes.catppuccin = {
-    enable = true;
-    settings = {
-      flavour = "mocha";
-      transparent_background = true;
-    };
+  neovim = {
+    plugin = "catppuccin-nvim";
+    config = ''
+      require("catppuccin").setup({ flavour = "mocha", transparent_background = true })
+      vim.cmd.colorscheme("catppuccin")
+    '';
   };
 }

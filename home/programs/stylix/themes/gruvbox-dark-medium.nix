@@ -23,18 +23,14 @@
     hash = "sha256-RqzCCnn4b5kU7EYgaPF19Gr9I5cZrkEdsTu+wGaaMFI=";
   };
 
-  nixvim = {
-    colorschemes.gruvbox = {
-      enable = true;
-      settings = {
-        transparent_mode = true;
-        italic = {
-          strings = false;
-          emphasis = false;
-          comments = false;
-          folds = false;
-        };
-      };
-    };
+  neovim = {
+    plugin = "gruvbox-nvim";
+    config = ''
+      require("gruvbox").setup({
+        transparent_mode = true,
+        italic = { strings = false, emphasis = false, comments = false, folds = false },
+      })
+      vim.cmd.colorscheme("gruvbox")
+    '';
   };
 }
