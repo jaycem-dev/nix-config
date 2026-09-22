@@ -7,7 +7,6 @@
   };
 
   home.packages = with pkgs; [
-    ente-auth
     ente-desktop
     gimp
     proton-vpn

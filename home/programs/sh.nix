@@ -27,7 +27,7 @@
 
     carapace = {
       enable = true;
-      ignoreCase = true;
+      environment.CARAPACE_MATCH = true;
     };
 
     starship = {
