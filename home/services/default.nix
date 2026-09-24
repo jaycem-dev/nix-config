@@ -9,6 +9,7 @@
     wpaperd.enable = true;
     udiskie.enable = true;
     playerctld.enable = true;
+    gnome-keyring.enable = true;
 
     syncthing = {
       enable = true;

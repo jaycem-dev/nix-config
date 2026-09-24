@@ -2,7 +2,7 @@
 
 My setup for NixOS, Home Manager (standalone) and Nixvim
 
-I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboard.nix](./nixos/services/default.nix) and [niri.kdl](./home/programs/niri/default.nix).
+I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboard.nix](./nixos/services/default.nix) and [hyprland](./home/programs/hyprland/lua/main.lua).
 
 > [!IMPORTANT]
 > New NixOS installs usually require copying `/etc/nixos/hardware-configuration.nix` to the host directory or you won't be able to boot.

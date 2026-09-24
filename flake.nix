@@ -4,10 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
-    waybar.url = "github:Alexays/Waybar";
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:nix-community/stylix";
-    nixvim.url = "github:nix-community/nixvim";
     caveman = {
       url = "github:JuliusBrussee/caveman/v2.6.0";
       flake = false;
@@ -25,7 +23,8 @@
     { nixpkgs, ... }@inputs:
     let
       user = "jay";
-      commonArgs = { inherit inputs user; };
+      flakePath = "/home/${user}/Projects/nix-config";
+      commonArgs = { inherit inputs user flakePath; };
 
       systems = {
         linux-arm = "aarch64-linux";

@@ -3,14 +3,19 @@
 
   userSettings = {
     theme = {
-      name = "gruvbox-dark-medium";
-      # opacity = 0.95;
-      # borderRadius = 10;
+      name = "catppuccin-mocha";
+      opacity = 0.95;
+      borderRadius = 5;
     };
   };
 
-  # workaraound for asahi issues like brightness desync on boot
-  wayland.windowManager.niri.settings._children = [
-    { spawn-sh-at-startup = "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
-  ];
+  # TODO: check if this is still needed
+  # Asahi display issue workaround
+  wayland.windowManager.hyprland.extraConfig = ''
+    hl.on("hyprland.start", function()
+        hl.exec_cmd(
+            [[hyprctl dispatch 'hl.dsp.dpms({ action = "disable" })'; sleep 1; hyprctl dispatch 'hl.dsp.dpms({ action = "enable" })']]
+        )
+    end)
+  '';
 }

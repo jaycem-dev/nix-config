@@ -1,22 +1,18 @@
 {
   pkgs,
   lib,
-  user,
+  flakePath,
   ...
 }:
 {
   programs = {
     gamemode.enable = true;
     virt-manager.enable = true;
-
-    niri = {
-      enable = true;
-      useNautilus = false;
-    };
+    hyprland.enable = true;
 
     nh = {
       enable = true;
-      flake = "/home/${user}/Projects/nix-config";
+      flake = flakePath;
       clean = {
         enable = true;
         extraArgs = "--keep 2";
