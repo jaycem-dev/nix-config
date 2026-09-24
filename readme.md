@@ -7,6 +7,9 @@ I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboar
 > [!IMPORTANT]
 > New NixOS installs usually require copying `/etc/nixos/hardware-configuration.nix` to the host directory or you won't be able to boot.
 
+> [!WARNING]
+> This config expects to live at `~/Projects/nix-config`. If you clone it elsewhere, update `flakePath` in [flake.nix](./flake.nix).
+
 ## Install
 
 Choose a `<host>` from one of the values below. (See my current configurations in [hosts](./hosts)
@@ -31,6 +34,6 @@ The pkg [nh](https://github.com/nix-community/nh) is configured to use `~/Projec
 
 ## Software
 
-- Compositor and tools: Niri, Waybar, Fuzzel, Hypridle, Wpaperd, Swaylock
-- Main programs: Neovim, Kitty, Yazi
+- Compositor and tools: Hyprland, Noctalia
+- Main programs: Neovim, Kitty
 - Theming: Stylix

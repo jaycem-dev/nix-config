@@ -1,21 +1,19 @@
 {
   imports = [
-    ./neovim
-    ./hyprland
-    ./stylix
-    ./waybar
-    ./fuzzel.nix
+    ./ai.nix
+    ./apps.nix
     ./beets.nix
     ./browser.nix
+    ./cli.nix
     ./desktop-items.nix
     ./gaming.nix
+    ./hyprland
+    ./neovim
+    ./noctalia
     ./sh.nix
-    ./swaylock.nix
+    ./stylix
     ./terminal.nix
     ./tmux.nix
     ./yazi.nix
-    ./apps.nix
-    ./cli.nix
-    ./ai.nix
   ];
 }

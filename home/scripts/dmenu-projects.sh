@@ -29,7 +29,7 @@ for dir in "${dirs[@]}"; do
     names+=("$(basename "$dir")")
 done
 
-selected=$(printf '%s\n' "${names[@]}" | fuzzel --dmenu -p "Select project (${cmd}) > ")
+selected=$(printf '%s\n' "${names[@]}" | noctalia dmenu -p "Select project (${cmd}) > ")
 
 if [[ -n "$selected" ]]; then
     for dir in "${dirs[@]}"; do

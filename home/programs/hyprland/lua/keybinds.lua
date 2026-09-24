@@ -7,7 +7,7 @@ local mod2 = "SUPER + SHIFT"
 
 -- format for spawn_or_focus: { cmd = "command", class = "class" }
 -- format for spawn: "command"
-local menu = "fuzzel"
+local noctalia = "noctalia msg "
 local terminal = "kitty"
 local browser = { cmd = "brave-origin" }
 
@@ -32,10 +32,10 @@ hl.bind(mod .. " + W", spawn_webapp(whatsapp))
 hl.bind(mod2 .. " + M", spawn_webapp(protonmail))
 hl.bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. " + G", hl.dsp.window.pin())
-hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(menu))
+hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
 hl.bind(mod .. " + D", hl.dsp.exec_cmd("makoctl dismiss"))
 hl.bind(mod .. " + I", hl.dsp.exec_cmd("makoctl invoke"))
-hl.bind(mod .. " + P", hl.dsp.exec_cmd("dmenu-power"))
+hl.bind(mod .. " + P", hl.dsp.exec_cmd(noctalia .. "panel-toggle session"))
 hl.bind(mod .. " + T", hl.dsp.exec_cmd(terminal))
 
 -- scrolling keybinds
@@ -68,19 +68,23 @@ hl.bind(mod2 .. " + S", hl.dsp.window.move({ workspace = "special:scratch" }))
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("volume up"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("volume down"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volume mute"), { locked = true, repeating = true })
+-- media keys
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(noctalia .. "volume-up"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctalia .. "volume-down"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(noctalia .. "volume-mute"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(noctalia .. "mic-mute"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctalia .. "brightness-up"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctalia .. "brightness-down"), { locked = true, repeating = true })
 hl.bind(
-    "XF86AudioMicMute",
-    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+    "CTRL + XF86MonBrightnessUp",
+    hl.dsp.exec_cmd(noctalia .. "brightness-up 1"),
     { locked = true, repeating = true }
 )
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down"), { locked = true, repeating = true })
-hl.bind("CTRL + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up 2"), { locked = true, repeating = true })
-hl.bind("CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down 2"), { locked = true, repeating = true })
+hl.bind(
+    "CTRL + XF86MonBrightnessDown",
+    hl.dsp.exec_cmd(noctalia .. "brightness-down 1"),
+    { locked = true, repeating = true }
+)
 hl.bind(
     mod .. " + XF86MonBrightnessUp",
     hl.dsp.exec_cmd("brightnessctl -q -d kbd_backlight s +25%"),
@@ -91,9 +95,7 @@ hl.bind(
     hl.dsp.exec_cmd("brightnessctl -q -d kbd_backlight s 25%-"),
     { locked = true, repeating = true }
 )
-
--- Requires playerctl
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(noctalia .. "media next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd(noctalia .. "media toggle"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(noctalia .. "media toggle"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(noctalia .. "media previous"), { locked = true })
