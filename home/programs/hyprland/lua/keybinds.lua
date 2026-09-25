@@ -1,4 +1,6 @@
 local spawn = require("lua.utils").spawn_or_focus
+local scratchpad = require("lua.utils").scratchpad
+local scratchpad_webapp = require("lua.utils").scratchpad_webapp
 local spawn_webapp = require("lua.utils").spawn_or_focus_webapp
 local spawn_tui = require("lua.utils").spawn_or_focus_tui
 
@@ -7,14 +9,8 @@ local mod2 = "SUPER + SHIFT"
 
 -- format for spawn_or_focus: { cmd = "command", class = "class" }
 -- format for spawn: "command"
-local noctalia = "noctalia msg "
 local terminal = "kitty"
 local browser = { cmd = "brave-origin" }
-
--- webapps, use only url
-local whatsapp = "web.whatsapp.com"
-local protonmail = "mail.proton.me"
-local music = "open.spotify.com"
 
 -- tui, class is optional
 local yazi = { cmd = "yazi" }
@@ -26,17 +22,22 @@ hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod2 .. " + Q", hl.dsp.exec_cmd("hyprshutdown"))
 hl.bind(mod .. " + E", spawn_tui(yazi))
 hl.bind(mod .. " + N", spawn(nvim))
-hl.bind(mod .. " + M", spawn_webapp(music))
 hl.bind(mod .. " + B", spawn(browser))
-hl.bind(mod .. " + W", spawn_webapp(whatsapp))
-hl.bind(mod2 .. " + M", spawn_webapp(protonmail))
+hl.bind(mod .. " + W", spawn_webapp("web.whatsapp.com"))
+hl.bind(mod2 .. " + M", spawn_webapp("mail.proton.me"))
 hl.bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. " + G", hl.dsp.window.pin())
-hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
+hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind(mod .. " + D", hl.dsp.exec_cmd("makoctl dismiss"))
 hl.bind(mod .. " + I", hl.dsp.exec_cmd("makoctl invoke"))
-hl.bind(mod .. " + P", hl.dsp.exec_cmd(noctalia .. "panel-toggle session"))
+hl.bind(mod .. " + P", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind(mod .. " + T", hl.dsp.exec_cmd(terminal))
+
+-- scratchpads
+hl.bind(mod .. " + S", hl.dsp.workspace.toggle_special("scratch"))
+hl.bind(mod2 .. " + S", hl.dsp.window.move({ workspace = "special:scratch" }))
+hl.bind(mod .. " + A", scratchpad("ai", "dmenu-projects opencode", "opencode"))
+hl.bind(mod .. " + M", scratchpad_webapp("music", "open.spotify.com"))
 
 -- scrolling keybinds
 hl.bind(mod .. " + R", hl.dsp.layout("colresize +conf")) -- cycle column width forward
@@ -60,29 +61,25 @@ for i = 1, 10 do
     hl.bind(mod2 .. " + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
--- Scratchpad
-hl.bind(mod .. " + S", hl.dsp.workspace.toggle_special("scratch"))
-hl.bind(mod2 .. " + S", hl.dsp.window.move({ workspace = "special:scratch" }))
-
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(noctalia .. "volume-up"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(noctalia .. "volume-down"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(noctalia .. "volume-mute"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(noctalia .. "mic-mute"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(noctalia .. "brightness-up"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(noctalia .. "brightness-down"), { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("noctalia msg mic-mute"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down"), { locked = true, repeating = true })
 hl.bind(
     "CTRL + XF86MonBrightnessUp",
-    hl.dsp.exec_cmd(noctalia .. "brightness-up 1"),
+    hl.dsp.exec_cmd("noctalia msg brightness-up 1"),
     { locked = true, repeating = true }
 )
 hl.bind(
     "CTRL + XF86MonBrightnessDown",
-    hl.dsp.exec_cmd(noctalia .. "brightness-down 1"),
+    hl.dsp.exec_cmd("noctalia msg brightness-down 1"),
     { locked = true, repeating = true }
 )
 hl.bind(
@@ -95,7 +92,7 @@ hl.bind(
     hl.dsp.exec_cmd("brightnessctl -q -d kbd_backlight s 25%-"),
     { locked = true, repeating = true }
 )
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd(noctalia .. "media next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd(noctalia .. "media toggle"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(noctalia .. "media toggle"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(noctalia .. "media previous"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("noctalia msg media next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true })

@@ -37,12 +37,6 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = webapp_class("open.spotify.com"),
-    },
-    workspace = 3,
-})
-hl.window_rule({
-    match = {
         class = webapp_class("web.whatsapp.com") .. "|" .. webapp_class("mail.proton.me"),
     },
     workspace = 4,
