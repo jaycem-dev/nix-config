@@ -9,14 +9,14 @@ local mod2 = "SUPER + SHIFT"
 
 -- format for spawn_or_focus: { cmd = "command", class = "class" }
 -- format for spawn: "command"
-local terminal = "kitty"
+local terminal = "kitty -1"
 local browser = { cmd = "brave-origin" }
 
 -- tui, class is optional
 local yazi = { cmd = "yazi" }
 local nvim = { cmd = "dmenu-projects nvim", class = "nvim" }
 
-hl.bind(mod .. " + F", hl.dsp.layout("colresize 1.0"))
+hl.bind(mod .. " + F", hl.dsp.layout("fit active"))
 hl.bind(mod2 .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod2 .. " + Q", hl.dsp.exec_cmd("hyprshutdown"))
@@ -42,6 +42,7 @@ hl.bind(mod .. " + M", scratchpad_webapp("music", "open.spotify.com"))
 -- scrolling keybinds
 hl.bind(mod .. " + R", hl.dsp.layout("colresize +conf")) -- cycle column width forward
 hl.bind(mod2 .. " + R", hl.dsp.layout("colresize -conf")) -- cycle column width backward
+hl.bind(mod .. " + C", hl.dsp.layout("center"))
 hl.bind(mod .. " + left", hl.dsp.layout("focus l"))
 hl.bind(mod .. " + right", hl.dsp.layout("focus r"))
 hl.bind(mod .. " + up", hl.dsp.layout("focus u"))

@@ -59,14 +59,13 @@ hl.gesture({
 hl.config({
     general = {
         gaps_in = 5,
-        gaps_out = 5,
+        gaps_out = 10,
         border_size = 2,
         layout = "scrolling",
     },
 
     decoration = {
         inactive_opacity = 0.9,
-
         blur = {
             enabled = true,
             size = 10,
@@ -79,6 +78,7 @@ hl.config({
 hl.config({
     scrolling = {
         explicit_column_widths = "0.333, 0.5, 0.667",
+        column_width = 0.667,
         wrap_focus = false,
     },
 })
