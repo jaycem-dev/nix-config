@@ -33,6 +33,7 @@
       };
     in
     {
+      # TODO: create helpers for nix and home
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           system = systems.linux;

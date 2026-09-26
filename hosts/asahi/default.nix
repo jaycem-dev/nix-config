@@ -6,7 +6,6 @@
 {
   imports = [
     inputs.apple-silicon.nixosModules.apple-silicon-support
-    ./overlays.nix
     ./hardware-configuration.nix
     ../../nixos
   ];

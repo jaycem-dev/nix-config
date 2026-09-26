@@ -3,6 +3,5 @@
     ./programs
     ./services
     ./modules
-    ../shared/overlays.nix
   ];
 }

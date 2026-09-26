@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ../shared/overlays.nix
+    ./overlays
     ./programs
     ./services
     ./scripts
