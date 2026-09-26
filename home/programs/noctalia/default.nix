@@ -94,6 +94,7 @@ in
             action = "logout";
             command = "hyprshutdown";
           }
+          { action = "lock_and_suspend"; }
           {
             action = "reboot";
             command = "hyprshutdown -p 'systemctl reboot'";
