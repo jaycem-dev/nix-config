@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 let
-  monitorOn = "niri msg action power-on-monitors";
-  monitorOff = "niri msg action power-off-monitors";
+  monitorOn = "hyprctl dispatch 'hl.dsp.dpms({ action = [[enable]] })'";
+  monitorOff = "hyprctl dispatch 'hl.dsp.dpms({ action = [[disable]] })'";
   lockCmd = lib.getExe pkgs.swaylock;
 in
 {
@@ -31,7 +31,7 @@ in
           on-timeout = lockCmd;
         }
         {
-          timeout = 240;
+          timeout = 300;
           on-timeout = "systemctl suspend";
         }
       ];

@@ -1,7 +1,7 @@
 {
   imports = [
     ./neovim
-    ./niri
+    ./hyprland
     ./stylix
     ./waybar
     ./fuzzel.nix

@@ -9,10 +9,7 @@
     gamemode.enable = true;
     virt-manager.enable = true;
 
-    niri = {
-      enable = true;
-      useNautilus = false;
-    };
+    hyprland.enable = true;
 
     nh = {
       enable = true;

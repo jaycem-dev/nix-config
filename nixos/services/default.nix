@@ -24,7 +24,7 @@
 
     displayManager = {
       ly.enable = true;
-      defaultSession = "niri";
+      defaultSession = "hyprland";
 
       autoLogin = {
         enable = true;

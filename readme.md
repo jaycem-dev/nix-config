@@ -2,7 +2,7 @@
 
 My setup for NixOS and Home Manager (standalone).
 
-I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboard.nix](./nixos/services/default.nix) and [niri.kdl](./home/programs/niri/default.nix).
+I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboard.nix](./nixos/services/default.nix) and [hyprland](./home/programs/hyprland/lua/main.lua).
 
 > [!IMPORTANT]
 > New NixOS installs usually require copying `/etc/nixos/hardware-configuration.nix` to the host directory or you won't be able to boot.
@@ -31,6 +31,6 @@ The pkg [nh](https://github.com/nix-community/nh) is configured to use `~/Projec
 
 ## Software
 
-- Compositor and tools: Niri, Waybar, Fuzzel, Hypridle, Wpaperd, Swaylock
-- Main programs: Neovim, Kitty, Yazi
+- Compositor and tools: Hyprland, Waybar, Fuzzel, Hypridle, Swaylock
+- Main programs: Neovim, Kitty
 - Theming: Stylix
