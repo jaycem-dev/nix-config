@@ -31,6 +31,6 @@ The pkg [nh](https://github.com/nix-community/nh) is configured to use `~/Projec
 
 ## Software
 
-- Compositor and tools: Hyprland, Waybar, Fuzzel, Hypridle, Swaylock
+- Compositor and tools: Hyprland, Noctalia
 - Main programs: Neovim, Kitty
 - Theming: Stylix

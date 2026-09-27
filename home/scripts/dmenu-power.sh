@@ -7,7 +7,7 @@ items=(
     "Logout"
     "Power off monitors"
 )
-selected=$(printf '%s\n' "${items[@]}" | fuzzel --dmenu)
+selected=$(printf '%s\n' "${items[@]}" | noctalia dmenu -p "Power")
 
 case $selected in
 "Lock") swaylock ;;

@@ -3,9 +3,9 @@
 
   userSettings = {
     theme = {
-      name = "rose-pine";
+      name = "gruvbox-dark-medium";
       opacity = 0.9;
-      # borderRadius = 10;
+      borderRadius = 5;
     };
   };
 }

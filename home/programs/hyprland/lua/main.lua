@@ -51,9 +51,9 @@ hl.gesture({
 
 hl.config({
     general = {
+        gaps_out = 10,
         gaps_in = 5,
-        gaps_out = 5,
-        border_size = 2,
+        border_size = 3,
         resize_on_border = false,
         allow_tearing = false,
         layout = "scrolling",
@@ -74,11 +74,9 @@ hl.config({
     },
 })
 
--- Global animation duration: speed is in deciseconds (2 = 200ms).
--- Unset animations inherit from this, see https://wiki.hypr.land/configuring/core/animations/
+-- Global animation duration
 hl.animation({ leaf = "global", enabled = true, speed = 2, bezier = "default" })
-
--- Vertical slide for workspace switches, same 200ms duration
+-- Vertical slide for workspace switches
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default", style = "slidevert" })
 
 hl.config({

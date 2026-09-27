@@ -53,20 +53,6 @@ hl.window_rule({
     workspace = 5,
 })
 
-hl.layer_rule({
-    match = { namespace = "waybar" },
-    blur = true,
-    ignore_alpha = 0,
-    xray = true,
-})
-
-hl.layer_rule({
-    match = { namespace = "launcher" },
-    blur = true,
-    ignore_alpha = 0.5,
-    xray = true,
-})
-
 -- Example window rules that are useful
 hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.

@@ -40,6 +40,7 @@ in
     targets = {
       qt.enable = true; # disabled on hm standalone
       neovim.enable = !(theme ? neovim); # use theme colorscheme when set
+      hyprland.hyprpaper.enable = false; # it's enabled with hyprland
     };
 
     opacity = {
