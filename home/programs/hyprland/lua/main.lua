@@ -18,13 +18,10 @@ hl.config({
     input = {
         kb_layout = "us,us",
         kb_variant = "colemak_dh_iso,",
-        kb_model = "",
         kb_options = "caps:escape,grp:alt_shift_toggle",
-        kb_rules = "",
-
+        repeat_rate = 30,
+        repeat_delay = 400,
         follow_mouse = 1,
-
-        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {
             tap_to_click = false,
@@ -32,10 +29,7 @@ hl.config({
             clickfinger_behavior = true,
         },
     },
-    cursor = {
-        inactive_timeout = 0.5,
-        hide_on_key_press = true,
-    },
+    cursor = { inactive_timeout = 0.5, hide_on_key_press = true },
 })
 
 hl.gesture({
@@ -50,27 +44,21 @@ hl.gesture({
 })
 
 hl.config({
+    animations = { enabled = true },
+
     general = {
         gaps_out = 10,
         gaps_in = 5,
-        border_size = 3,
-        resize_on_border = false,
+        border_size = 2,
         allow_tearing = false,
         layout = "scrolling",
+        snap = { enabled = true, respect_gaps = true },
     },
 
     decoration = {
         rounding = 5,
-        rounding_power = 2,
-        active_opacity = 1.0,
         inactive_opacity = 0.9,
-        blur = {
-            xray = true,
-        },
-    },
-
-    animations = {
-        enabled = true,
+        blur = { xray = true },
     },
 })
 
@@ -81,7 +69,7 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default
 
 hl.config({
     scrolling = {
-        fullscreen_on_one_column = false,
+        fullscreen_on_one_column = true,
         column_width = 0.667,
         explicit_column_widths = "0.5, 0.667",
         wrap_focus = false,
@@ -90,13 +78,10 @@ hl.config({
 })
 
 hl.config({
+    ecosystem = { no_donation_nag = true },
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo = true,
         focus_on_activate = true,
-    },
-    ecosystem = {
-        no_update_news = true,
-        no_donation_nag = true,
     },
 })
