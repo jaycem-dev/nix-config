@@ -10,12 +10,19 @@
     })
 
     (pkgs.writeShellApplication {
-      name = "dmenu-projects";
-      text = builtins.readFile ./dmenu-projects.sh;
+      name = "projects-picker";
+      text = builtins.readFile ./projects-picker.sh;
       runtimeInputs = with pkgs; [
         fd
+        fzf
+      ];
+    })
+
+    (pkgs.writeShellApplication {
+      name = "projects";
+      text = builtins.readFile ./projects.sh;
+      runtimeInputs = with pkgs; [
         kitty
-        noctalia
       ];
     })
 

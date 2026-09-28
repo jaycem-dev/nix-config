@@ -1,6 +1,7 @@
 local spawn = require("lua.utils").spawn_or_focus
 local spawn_webapp = require("lua.utils").spawn_or_focus_webapp
 local spawn_tui = require("lua.utils").spawn_or_focus_tui
+local scratchpad = require("lua.utils").scratchpad
 local scratchpad_webapp = require("lua.utils").scratchpad_webapp
 
 local mod = "SUPER+"
@@ -14,8 +15,7 @@ local browser = { cmd = "brave-origin" }
 
 -- tui, class is optional
 local yazi = { cmd = "yazi" }
-local nvim = { cmd = "dmenu-projects nvim", class = "nvim" }
-local opencode = { cmd = "dmenu-projects opencode", class = "opencode" }
+local nvim = { cmd = "projects nvim", class = "nvim" }
 
 hl.bind(mod .. "F", function()
     local win = hl.get_active_window()
@@ -34,7 +34,8 @@ hl.bind(mod .. "Q", hl.dsp.window.close())
 hl.bind(mod2 .. "Q", hl.dsp.exec_cmd("hyprshutdown"))
 hl.bind(mod .. "E", spawn_tui(yazi))
 hl.bind(mod .. "N", spawn(nvim))
-hl.bind(mod .. "A", spawn(opencode))
+hl.bind(mod2 .. "N", hl.dsp.exec_cmd("projects nvim"))
+hl.bind(mod .. "A", scratchpad("ai", "projects opencode", "opencode"))
 hl.bind(mod .. "B", spawn(browser))
 hl.bind(mod .. "W", spawn_webapp("web.whatsapp.com"))
 hl.bind(mod2 .. "M", spawn_webapp("mail.proton.me"))
