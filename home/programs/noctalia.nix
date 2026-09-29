@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   radius = config.userSettings.theme.borderRadius;
   # TODO: look for a better way to scale this
@@ -16,6 +16,7 @@ in
       location.auto_locate = true;
       notification.background_opacity = opacity;
       osd.background_opacity = opacity;
+      wallpaper.directory = "~/Pictures/Wallpapers";
 
       bar.default = {
         background_opacity = opacity;
@@ -78,6 +79,8 @@ in
       shell = {
         corner_radius_scale = radiusScale;
         launch_apps_as_systemd_services = true;
+        panel.transparency_mode = "soft";
+
       };
 
       theme.templates = {
@@ -101,4 +104,9 @@ in
       };
     };
   };
+
+  # Clear GUI-managed overrides
+  home.activation.clearNoctaliaOverrides = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
+    run rm -f "${config.xdg.stateHome}/noctalia/settings.toml"
+  '';
 }
