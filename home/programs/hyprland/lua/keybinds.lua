@@ -8,13 +8,9 @@ local layout_bind = require("lua.utils").layout_bind
 local mod = "SUPER+"
 local mod2 = "SUPER+SHIFT+"
 
--- format for spawn_or_focus: { cmd = "command", class = "class" }
--- format for spawn: "command"
 local menu = "noctalia msg panel-toggle launcher"
 local terminal = "kitty -1"
 local browser = { cmd = "brave-origin" }
-
--- tui, class is optional
 local yazi = { cmd = "yazi" }
 local nvim = { cmd = "projects nvim", class = "nvim" }
 
