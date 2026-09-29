@@ -4,6 +4,7 @@
     freetube.enable = true;
     mpv.enable = true;
     zed-editor.enable = true;
+    libreoffice.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -11,9 +12,7 @@
     gimp
     proton-vpn
     jellyfin-desktop
-    smassh
     kopuz
-    libreoffice
     localsend
     lollypop
     moonlight-qt

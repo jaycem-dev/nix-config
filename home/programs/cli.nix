@@ -15,6 +15,8 @@
     gh.enable = true;
     fzf.enable = true;
     npm.enable = true;
+    impala.enable = true;
+    wiremix.enable = true;
 
     git = {
       enable = true;
@@ -44,12 +46,10 @@
     ffmpeg
     fwupd
     imagemagick
-    impala
     libnotify
     tealdeer
     trash-cli
     unrar
-    wiremix
     wl-clipboard
     nixfmt
     alejandra
