@@ -1,7 +1,7 @@
 {
   polarity = "dark";
   base16Scheme = {
-    base00 = "#212337";
+    base00 = "#111111";
     base01 = "#323449";
     base02 = "#3b4261";
     base03 = "#7081d0";
@@ -19,7 +19,16 @@
     base0F = "#f265b5";
   };
   image = {
-    url = "https://w.wallhaven.cc/full/2e/wallhaven-2e3ymx.jpg";
-    hash = "sha256-c4hykaeTJWZoE6G3rsVdc3i3o7lZG/cliWh22It4/Z0=";
+    url = "https://w.wallhaven.cc/full/p8/wallhaven-p88lvp.jpg";
+    hash = "sha256-GSV1fEwV4p1e0f72cyGhKuOKGWDSvbhejJOSuEYQweI=";
+  };
+
+  neovim = {
+    plugin = "eldritch-nvim";
+    config = ''
+      require("eldritch").setup({ transparent = true })
+
+      vim.cmd.colorscheme("eldritch")
+    '';
   };
 }
