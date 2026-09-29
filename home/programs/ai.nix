@@ -1,19 +1,56 @@
 {
   inputs,
-  pkgs,
+  config,
   ...
 }:
+let
+  skills = {
+    caveman = "${inputs.caveman}/skills/caveman";
+  };
+in
 {
-  home.packages = with pkgs; [
-    grok-build
-  ];
-
   programs = {
-    antigravity-cli.enable = true;
-    codex.enable = true;
+    antigravity-cli = {
+      enable = true;
+      inherit skills;
+      permissions = {
+        allow = [
+          "read_file(/nix/store)"
+          "read_file(/tmp)"
+          "read_file(~/.config)"
+        ];
+        deny = [
+          "write_file(/nix/store)"
+        ];
+        ask = [
+          "write_file(~/.config)"
+        ];
+      };
+      settings = {
+        privacy.usageStatisticsEnabled = false;
+        telemetry.enabled = false;
+      };
+    };
+    codex = {
+      enable = true;
+      inherit skills;
+      settings = {
+        analytics.enabled = false;
+        default_permissions = "mine";
+        permissions.mine = {
+          extends = ":workspace";
+          filesystem = {
+            "/nix/store" = "read";
+            "/tmp" = "read";
+            "${config.xdg.configHome}" = "read";
+          };
+        };
+      };
+    };
 
     opencode = {
       enable = true;
+      inherit skills;
       tui.attention = {
         enabled = true;
         sound = false;
@@ -31,7 +68,6 @@
           };
         };
       };
-      skills.caveman = "${inputs.caveman}/skills/caveman";
     };
   };
 }
