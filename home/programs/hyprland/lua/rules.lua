@@ -1,8 +1,8 @@
-local webapp_class = require("lua.utils").webapp_class
+local utils = require("lua.utils")
 
 -- pip
 hl.window_rule({
-    name = "apply-something",
+    name = "Pip",
     match = {
         title = "Picture in picture",
     },
@@ -37,7 +37,7 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = webapp_class("web.whatsapp.com") .. "|" .. webapp_class("mail.proton.me"),
+        class = utils.webapp_class("web.whatsapp.com") .. "|" .. utils.webapp_class("mail.proton.me"),
     },
     workspace = 4,
 })

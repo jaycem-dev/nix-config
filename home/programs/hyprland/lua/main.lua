@@ -51,7 +51,8 @@ hl.config({
         gaps_in = 2.5,
         border_size = 2,
         allow_tearing = false,
-        layout = "scrolling",
+        layout = "master",
+        no_focus_fallback = true,
         snap = { enabled = true, respect_gaps = true },
     },
 

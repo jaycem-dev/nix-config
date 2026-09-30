@@ -14,6 +14,11 @@
     settings.config.decoration.rounding = config.userSettings.theme.borderRadius;
     extraConfig = ''
       require("lua.main")
+
+      hl.window_rule({
+        match = { fullscreen = true },
+        border_color = "rgb(${config.lib.stylix.colors.red})",
+      })
     '';
   };
 
