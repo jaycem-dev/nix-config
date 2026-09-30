@@ -11,6 +11,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
+    settings.config.decoration.rounding = config.userSettings.theme.borderRadius;
     extraConfig = ''
       require("lua.main")
     '';

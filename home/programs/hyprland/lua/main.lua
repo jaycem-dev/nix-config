@@ -47,8 +47,8 @@ hl.config({
     animations = { enabled = true },
 
     general = {
-        gaps_out = 10,
-        gaps_in = 5,
+        gaps_out = 5,
+        gaps_in = 2.5,
         border_size = 2,
         allow_tearing = false,
         layout = "scrolling",
@@ -56,9 +56,12 @@ hl.config({
     },
 
     decoration = {
-        rounding = 5,
         inactive_opacity = 0.9,
-        blur = { xray = true },
+        blur = {
+            xray = true,
+            size = 20,
+            passes = 2,
+        },
     },
 })
 
@@ -69,7 +72,7 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default
 
 hl.config({
     scrolling = {
-        fullscreen_on_one_column = true,
+        fullscreen_on_one_column = false,
         column_width = 0.667,
         explicit_column_widths = "0.5, 0.667",
         wrap_focus = false,
