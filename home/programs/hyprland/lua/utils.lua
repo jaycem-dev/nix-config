@@ -1,5 +1,9 @@
 local M = {}
 
+-- Only Chromium browsers are supported
+local browser = "brave-origin"
+local browser_class = "brave"
+
 ---Bind different actions to the same key depending on the current layout.
 ---Values can be layout dispatchers or functions (functions are called, dispatchers are dispatched).
 ---Eg. `layout_bind({ scrolling = hl.dsp.layout("swapcol l"), master = hl.dsp.layout("swapprev") })`
@@ -19,10 +23,6 @@ function M.layout_bind(bind_table)
         end
     end
 end
-
--- Only Chromium browsers are supported
-local browser = "brave-origin"
-local browser_class = "brave"
 
 ---Generate the Hyprland window class for a webapp.
 ---Eg. `webapp_class("open.spotify.com")` → `"brave-open.spotify.com__-Default"`
@@ -111,6 +111,33 @@ end
 ---@return function
 function M.scratchpad_webapp(scratchpad_name, url)
     return M.scratchpad(scratchpad_name, M.webapp_cmd(url), M.webapp_class(url))
+end
+
+---Toggle the active scrolling column between full width and the configured default width.
+function M.scrolling_fullwidth_toggle()
+    local win = hl.get_active_window()
+    if not win then
+        return
+    end
+    if win.layout.column.width == 1 then
+        hl.dispatch(hl.dsp.layout("colresize " .. hl.get_config("scrolling.column_width")))
+    else
+        hl.dispatch(hl.dsp.layout("colresize 1"))
+    end
+end
+
+---Toggle the current workspace between the scrolling and master layouts.
+function M.toggle_workspace_layout()
+    local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+    if not workspace then
+        return
+    end
+    local next_layout = workspace.tiled_layout == "scrolling" and "master" or "scrolling"
+    if workspace.special then
+        hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
+    else
+        hl.workspace_rule({ workspace = tostring(workspace.id), layout = next_layout })
+    end
 end
 
 return M
