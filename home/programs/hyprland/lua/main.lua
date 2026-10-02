@@ -5,7 +5,7 @@ hl.monitor({
     output = "eDP-1",
     mode = "preferred",
     position = "auto",
-    scale = "1.6",
+    scale = "1.67",
 })
 hl.monitor({
     output = "HDMI-A-1",
