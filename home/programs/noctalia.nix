@@ -20,10 +20,10 @@ in
 
       bar.default = {
         background_opacity = opacity;
-        concave_edge_corners = false;
-        margin_ends = 0;
+        concave_edge_corners = true;
+        margin_ends = 10;
         thickness = 30;
-        radius = 0;
+        radius = radius;
         shadow = false;
 
         start = [
