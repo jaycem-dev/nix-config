@@ -47,8 +47,8 @@ hl.config({
     animations = { enabled = true },
 
     general = {
-        gaps_out = 5,
-        gaps_in = 2.5,
+        gaps_out = 10,
+        gaps_in = 5,
         border_size = 2,
         allow_tearing = false,
         layout = "scrolling",
@@ -58,6 +58,7 @@ hl.config({
 
     decoration = {
         inactive_opacity = 0.9,
+        shadow = { enabled = false },
         blur = {
             xray = true,
             size = 20,

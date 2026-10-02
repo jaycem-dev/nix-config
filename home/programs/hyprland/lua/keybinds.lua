@@ -50,8 +50,7 @@ for i = 1, 10 do
 end
 
 -- scratchpads
-hl.bind(mod .. "S", hl.dsp.workspace.toggle_special("scratch"))
-hl.bind(mod2 .. "S", hl.dsp.window.move({ workspace = "special:scratch" }))
+hl.bind(mod .. "S", utils.scratchpad("scratch", "kitty -1 --app-id scratch", "scratch"))
 hl.bind(mod .. "M", utils.scratchpad_webapp("music", "open.spotify.com"))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
