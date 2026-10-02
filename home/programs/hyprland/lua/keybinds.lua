@@ -6,16 +6,27 @@ local mod2 = mod .. "SHIFT+"
 local menu = "noctalia msg panel-toggle launcher"
 local terminal = "kitty -1"
 local browser = "brave-origin"
-local yazi = "yazi"
 local nvim = { cmd = "projects nvim", class = "nvim" }
-local steam = "steam"
 
 hl.bind(mod2 .. "F", hl.dsp.window.fullscreen())
 hl.bind(mod .. "Q", hl.dsp.window.close())
+hl.bind(mod .. "R", hl.dsp.layout("colresize +conf"))
+hl.bind(mod2 .. "left", hl.dsp.layout("swapcol l"))
+hl.bind(mod2 .. "right", hl.dsp.layout("swapcol r"))
+hl.bind(mod .. "comma", hl.dsp.layout("consume_or_expel prev"))
+hl.bind(mod .. "period", hl.dsp.layout("consume_or_expel next"))
+hl.bind(mod .. "left", hl.dsp.focus({ direction = "left" }))
+hl.bind(mod .. "right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mod .. "up", hl.dsp.focus({ direction = "up" }))
+hl.bind(mod .. "down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mod2 .. "up", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mod2 .. "down", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mod .. "F", utils.scrolling_fullwidth_toggle)
+
 hl.bind(mod2 .. "Q", hl.dsp.exec_cmd("hyprshutdown"))
-hl.bind(mod .. "E", utils.spawn_or_focus_tui(yazi))
+hl.bind(mod .. "E", utils.spawn_or_focus_tui("yazi"))
 hl.bind(mod .. "N", utils.spawn_or_focus(nvim))
-hl.bind(mod .. "G", utils.spawn_or_focus(steam))
+hl.bind(mod .. "G", utils.spawn_or_focus("steam"))
 hl.bind(mod2 .. "N", hl.dsp.exec_cmd("projects nvim"))
 hl.bind(mod .. "A", utils.scratchpad("ai", "projects opencode", "opencode"))
 hl.bind(mod .. "B", utils.spawn_or_focus(browser))
@@ -24,24 +35,12 @@ hl.bind(mod2 .. "M", utils.spawn_or_focus_webapp("mail.proton.me"))
 hl.bind(mod .. "V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. "G", hl.dsp.window.pin())
 hl.bind(mod .. "SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mod .. "D", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
-hl.bind(mod .. "I", hl.dsp.exec_cmd("noctalia msg notification-invoke-latest"))
 hl.bind(mod .. "P", hl.dsp.exec_cmd("dmenu-power"))
 hl.bind(mod .. "T", hl.dsp.exec_cmd(terminal))
-
-hl.bind(mod .. "F", utils.scrolling_fullwidth_toggle)
-hl.bind(mod .. "R", hl.dsp.layout("colresize +conf"))
-hl.bind(mod2 .. "left", hl.dsp.layout("swapcol l"))
-hl.bind(mod2 .. "right", hl.dsp.layout("swapcol r"))
-hl.bind(mod .. "comma", hl.dsp.layout("consume_or_expel prev"))
-hl.bind(mod .. "period", hl.dsp.layout("consume_or_expel next"))
-
-hl.bind(mod .. "left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mod .. "right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mod .. "up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mod .. "down", hl.dsp.focus({ direction = "down" }))
-hl.bind(mod2 .. "up", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mod2 .. "down", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mod .. "D", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
+hl.bind(mod .. "I", hl.dsp.exec_cmd("noctalia msg notification-invoke-latest"))
+hl.bind(mod2 .. "S", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
+hl.bind(mod2 .. "B", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
