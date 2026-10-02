@@ -1,7 +1,7 @@
 local utils = require("lua.utils")
 
 local mod = "SUPER+"
-local mod2 = "SUPER+SHIFT+"
+local mod2 = mod .. "SHIFT+"
 
 local menu = "noctalia msg panel-toggle launcher"
 local terminal = "kitty -1"
@@ -28,50 +28,14 @@ hl.bind(mod .. "D", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
 hl.bind(mod .. "I", hl.dsp.exec_cmd("noctalia msg notification-invoke-latest"))
 hl.bind(mod .. "P", hl.dsp.exec_cmd("dmenu-power"))
 hl.bind(mod .. "T", hl.dsp.exec_cmd(terminal))
-hl.bind(mod .. "L", utils.toggle_workspace_layout)
 
--- per layout binds
-hl.bind(
-    mod .. "F",
-    utils.layout_bind({
-        scrolling = utils.scrolling_fullwidth_toggle,
-        master = hl.dsp.window.fullscreen({ mode = "maximized" }),
-    })
-)
-hl.bind(
-    mod .. "R",
-    utils.layout_bind({
-        scrolling = hl.dsp.layout("colresize +conf"),
-    })
-)
-hl.bind(
-    mod2 .. "left",
-    utils.layout_bind({
-        scrolling = hl.dsp.layout("swapcol l"),
-        master = hl.dsp.layout("swapprev"),
-    })
-)
-hl.bind(
-    mod2 .. "right",
-    utils.layout_bind({
-        scrolling = hl.dsp.layout("swapcol r"),
-        master = hl.dsp.layout("swapnext"),
-    })
-)
-hl.bind(
-    mod .. "comma",
-    utils.layout_bind({
-        scrolling = hl.dsp.layout("consume_or_expel prev"),
-    })
-)
-hl.bind(
-    mod .. "period",
-    utils.layout_bind({
-        scrolling = hl.dsp.layout("consume_or_expel next"),
-    })
-)
+hl.bind(mod .. "F", utils.scrolling_fullwidth_toggle)
+hl.bind(mod .. "R", hl.dsp.layout("colresize +conf"))
+hl.bind(mod2 .. "left", hl.dsp.layout("swapcol l"))
+hl.bind(mod2 .. "right", hl.dsp.layout("swapcol r"))
+hl.bind(mod .. "comma", hl.dsp.layout("consume_or_expel prev"))
+hl.bind(mod .. "period", hl.dsp.layout("consume_or_expel next"))
 
--- Move focus with mainMod + arrow keys
 hl.bind(mod .. "left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. "right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. "up", hl.dsp.focus({ direction = "up" }))
@@ -86,13 +50,9 @@ for i = 1, 10 do
 end
 
 -- scratchpads
-hl.bind(mod .. "S", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind(mod2 .. "S", hl.dsp.window.move({ workspace = "special:scratchpad" }))
+hl.bind(mod .. "S", hl.dsp.workspace.toggle_special("scratch"))
+hl.bind(mod2 .. "S", hl.dsp.window.move({ workspace = "special:scratch" }))
 hl.bind(mod .. "M", utils.scratchpad_webapp("music", "open.spotify.com"))
-
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mod .. "mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mod .. "mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mod .. "mouse:272", hl.dsp.window.drag(), { mouse = true })

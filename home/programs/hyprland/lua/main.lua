@@ -51,7 +51,7 @@ hl.config({
         gaps_in = 2.5,
         border_size = 2,
         allow_tearing = false,
-        layout = "master",
+        layout = "scrolling",
         no_focus_fallback = true,
         snap = { enabled = true, respect_gaps = true },
     },
@@ -73,7 +73,7 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default
 
 hl.config({
     scrolling = {
-        fullscreen_on_one_column = false,
+        fullscreen_on_one_column = true,
         column_width = 0.667,
         explicit_column_widths = "0.5, 0.667",
         wrap_focus = false,
