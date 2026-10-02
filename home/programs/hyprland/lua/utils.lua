@@ -19,12 +19,16 @@ function M.webapp_cmd(url)
 end
 
 ---Spawn an app or focus it if already running.
----Eg. `spawn_or_focus({ cmd = "brave", class = "brave-browser" })`
----@param app {cmd: string, class: string|nil}
+---Accepts a single string (used as both cmd and class) or a full table for distinct values.
+---Eg. `spawn_or_focus("steam")` or `spawn_or_focus({ cmd = "brave", class = "brave-browser" })`
+---@param app string|{cmd: string, class: string}
 ---@return function
 function M.spawn_or_focus(app)
+    if type(app) == "string" then
+        app = { cmd = app, class = app }
+    end
     return function()
-        local w = hl.get_window("class:" .. (app.class or app.cmd))
+        local w = hl.get_window("class:" .. app.class)
         if w then
             hl.dispatch(hl.dsp.focus({ window = w }))
         else
@@ -55,13 +59,15 @@ function M.spawn_or_focus_url(url)
 end
 
 ---Spawn or focus a terminal TUI app using kitty with a unique app ID.
----Eg. `spawn_or_focus_tui({ cmd = "yazi" })`
----@param app {cmd: string, class: string|nil}
+---Eg. `spawn_or_focus_tui("yazi")`
+---@param app string|{cmd: string, class: string}
 ---@return function
 function M.spawn_or_focus_tui(app)
-    local class = app.class or app.cmd
-    local cmd = "kitty --app-id " .. class .. " " .. app.cmd
-    return M.spawn_or_focus({ cmd = cmd, class = app.class or app.cmd })
+    if type(app) == "string" then
+        app = { cmd = app, class = app }
+    end
+    local cmd = "kitty --app-id " .. app.class .. " " .. app.cmd
+    return M.spawn_or_focus({ cmd = cmd, class = app.class })
 end
 
 ---Create a scratchpad toggle function for a given class/cmd.

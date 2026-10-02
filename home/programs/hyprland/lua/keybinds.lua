@@ -5,10 +5,10 @@ local mod2 = mod .. "SHIFT+"
 
 local menu = "noctalia msg panel-toggle launcher"
 local terminal = "kitty -1"
-local browser = { cmd = "brave-origin" }
-local yazi = { cmd = "yazi" }
+local browser = "brave-origin"
+local yazi = "yazi"
 local nvim = { cmd = "projects nvim", class = "nvim" }
-local steam = { cmd = "steam" }
+local steam = "steam"
 
 hl.bind(mod2 .. "F", hl.dsp.window.fullscreen())
 hl.bind(mod .. "Q", hl.dsp.window.close())
