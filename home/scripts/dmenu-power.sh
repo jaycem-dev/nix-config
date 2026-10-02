@@ -15,5 +15,5 @@ case $selected in
 "Reboot") hyprshutdown -p "shutdown -r now" ;;
 "Shutdown") hyprshutdown -p "shutdown now" ;;
 "Logout") hyprshutdown ;;
-"Power off monitors") hyprctl dispatch 'hl.dsp.dpms({ action = "disable" })' ;;
+"Power off monitors") noctalia msg dpms-off ;;
 esac
