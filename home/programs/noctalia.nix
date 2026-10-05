@@ -21,9 +21,9 @@ in
       bar.default = {
         background_opacity = opacity;
         concave_edge_corners = true;
-        margin_ends = 10;
+        margin_ends = 0;
         thickness = 30;
-        radius = radius;
+        radius = 0;
         shadow = false;
 
         start = [
@@ -33,7 +33,7 @@ in
         ];
         center = [
           "clock"
-          "weather"
+          "notifications"
         ];
         end = [
           "privacy"
@@ -43,7 +43,6 @@ in
           "volume"
           "brightness"
           "battery"
-          "notifications"
         ];
         capsule_group = [
           {
@@ -51,8 +50,6 @@ in
             members = [
               "tray"
               "caffeine"
-              "keyboard_layout"
-              "screenshot"
               "power_profile"
             ];
           }
@@ -95,9 +92,7 @@ in
         network.show_label = false;
         privacy.hide_inactive = true;
         tray.drawer = true;
-        weather.show_condition = false;
         taskbar = {
-          capsule = true;
           inactive_opacity = 0.6;
           only_active_workspace = true;
         };

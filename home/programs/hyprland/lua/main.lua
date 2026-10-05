@@ -68,9 +68,9 @@ hl.config({
 })
 
 -- Global animation duration
-hl.animation({ leaf = "global", enabled = true, speed = 2, bezier = "default" })
+hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "default" })
 -- Vertical slide for workspace switches
-hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default", style = "slidevert" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slidevert" })
 
 hl.config({
     scrolling = {
@@ -79,6 +79,7 @@ hl.config({
         explicit_column_widths = "0.5, 0.667",
         wrap_focus = false,
         wrap_swapcol = false,
+        follow_min_visible = 0.2,
     },
 })
 
