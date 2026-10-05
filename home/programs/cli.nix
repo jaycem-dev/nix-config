@@ -13,7 +13,11 @@
     lazygit.enable = true;
     devenv.enable = true;
     gh.enable = true;
-    fzf.enable = true;
+    yazi.enable = true;
+    fzf = {
+      enable = true;
+      defaultOptions = [ "--no-color" ];
+    };
     npm.enable = true;
     impala.enable = true;
     wiremix.enable = true;

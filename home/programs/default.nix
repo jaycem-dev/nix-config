@@ -10,7 +10,6 @@
     ./sh.nix
     ./terminal.nix
     ./tmux.nix
-    ./yazi.nix
     ./apps.nix
     ./cli.nix
     ./ai.nix
