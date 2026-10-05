@@ -19,6 +19,8 @@
       cp = "cp -i";
       mv = "mv -i";
       mkdir = "mkdir -p";
+      hs = "nh home switch";
+      ns = "nh os switch";
     };
   };
 
