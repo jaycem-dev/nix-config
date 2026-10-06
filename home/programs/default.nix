@@ -13,6 +13,7 @@
     ./apps.nix
     ./cli.nix
     ./ai.nix
+    ./dev.nix
     ./noctalia.nix
   ];
 }

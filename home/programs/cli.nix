@@ -10,30 +10,14 @@
     parallel.enable = true;
     ripgrep.enable = true;
     yt-dlp.enable = true;
-    lazygit.enable = true;
-    devenv.enable = true;
-    gh.enable = true;
     yazi.enable = true;
+    impala.enable = true;
+    wiremix.enable = true;
+
     fzf = {
       enable = true;
       defaultOptions = [ "--no-color" ];
     };
-    npm.enable = true;
-    impala.enable = true;
-    wiremix.enable = true;
-
-    git = {
-      enable = true;
-      lfs.enable = true;
-      settings = {
-        pull.rebase = true;
-        user = {
-          name = "Jay";
-          email = "45575946+jaycem-dev@users.noreply.github.com";
-        };
-      };
-    };
-
     eza = {
       enable = true;
       icons = "auto";
@@ -44,7 +28,6 @@
   home.packages = with pkgs; [
     bluetui
     brightnessctl
-    android-tools
     ddcutil
     exfatprogs
     ffmpeg
@@ -55,10 +38,5 @@
     trash-cli
     unrar
     wl-clipboard
-    nixfmt
-    alejandra
-    nixd
-    stylua
-    lua-language-server
   ];
 }
