@@ -1,12 +1,29 @@
 require("lua.keybinds")
 require("lua.rules")
 
+-- Global animation duration
+hl.animation({
+    leaf = "global",
+    enabled = true,
+    speed = 3,
+    bezier = "default",
+})
+-- Vertical slide for workspace switches
+hl.animation({
+    leaf = "workspaces",
+    enabled = true,
+    speed = 3,
+    bezier = "default",
+    style = "slidevert",
+})
+
 hl.monitor({
     output = "eDP-1",
     mode = "preferred",
     position = "auto",
     scale = "1.67",
 })
+
 hl.monitor({
     output = "HDMI-A-1",
     mode = "1920x1080@72",
@@ -15,6 +32,8 @@ hl.monitor({
 })
 
 hl.config({
+    cursor = { inactive_timeout = 0.5, hide_on_key_press = true },
+
     input = {
         kb_layout = "us,us",
         kb_variant = "colemak_dh_iso,",
@@ -29,7 +48,6 @@ hl.config({
             clickfinger_behavior = true,
         },
     },
-    cursor = { inactive_timeout = 0.5, hide_on_key_press = true },
 })
 
 hl.gesture({
@@ -37,6 +55,7 @@ hl.gesture({
     direction = "vertical",
     action = "workspace",
 })
+
 hl.gesture({
     fingers = 3,
     direction = "horizontal",
@@ -47,8 +66,8 @@ hl.config({
     animations = { enabled = true },
 
     general = {
-        gaps_out = 10,
-        gaps_in = 5,
+        gaps_out = 5,
+        gaps_in = 2.5,
         border_size = 2,
         allow_tearing = false,
         layout = "scrolling",
@@ -60,17 +79,13 @@ hl.config({
         inactive_opacity = 0.9,
         shadow = { enabled = false },
         blur = {
+            enabled = true,
             xray = true,
             size = 20,
             passes = 2,
         },
     },
 })
-
--- Global animation duration
-hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "default" })
--- Vertical slide for workspace switches
-hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slidevert" })
 
 hl.config({
     scrolling = {

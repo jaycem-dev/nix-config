@@ -3,9 +3,7 @@ local utils = require("lua.utils")
 -- pip
 hl.window_rule({
     name = "Pip",
-    match = {
-        title = "Picture in picture",
-    },
+    match = { title = "Picture in picture" },
     float = true,
     pin = true,
     keep_aspect_ratio = true,
@@ -16,23 +14,17 @@ hl.window_rule({
 
 hl.window_rule({
     name = "disable-focus-on-activate",
-    match = {
-        class = "rocketleague.exe",
-    },
+    match = { class = "rocketleague.exe" },
     focus_on_activate = false,
 })
 
 -- workspace assignment
 hl.window_rule({
-    match = {
-        class = "brave-origin",
-    },
+    match = { class = "brave-origin" },
     workspace = 1,
 })
 hl.window_rule({
-    match = {
-        class = "foot|kitty|nvim",
-    },
+    match = { class = "foot|kitty|nvim" },
     workspace = 2,
 })
 hl.window_rule({
@@ -42,9 +34,7 @@ hl.window_rule({
     workspace = 4,
 })
 hl.window_rule({
-    match = {
-        class = "steam|electron",
-    },
+    match = { class = "steam|electron" },
     workspace = 5,
 })
 

@@ -112,4 +112,20 @@ function M.scrolling_fullwidth_toggle()
     end
 end
 
+---Focus window in scrolling column, else adjacent workspace.
+---`dir` "u" falls back to "r-1", "d" to "r+1".
+---@param dir "u"|"d"
+---@return function
+function M.focus_column_or_workspace(dir)
+    local fallback = dir == "u" and "r-1" or "r+1"
+    return function()
+        local before = hl.get_active_window()
+        hl.dispatch(hl.dsp.layout("focus " .. dir))
+        local after = hl.get_active_window()
+        if (before == nil and after == nil) or (before ~= nil and after ~= nil and before.address == after.address) then
+            hl.dispatch(hl.dsp.focus({ workspace = fallback }))
+        end
+    end
+end
+
 return M
