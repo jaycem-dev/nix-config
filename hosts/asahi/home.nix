@@ -9,6 +9,9 @@
     };
   };
 
+  # asahi needs --impure to build
+  home.shellAliases.ns = lib.mkForce "nh os switch --impure";
+
   # asahi display issue workaround
   wayland.windowManager.hyprland.extraConfig = ''
     hl.on("hyprland.start", function()
