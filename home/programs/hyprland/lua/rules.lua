@@ -38,6 +38,13 @@ hl.window_rule({
     workspace = 5,
 })
 
+hl.layer_rule({
+    match = { namespace = "waybar|launcher|notifications" },
+    blur = true,
+    ignore_alpha = 0.5,
+    xray = true,
+})
+
 -- Example window rules that are useful
 hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.

@@ -3,7 +3,7 @@ local utils = require("lua.utils")
 local mod = "SUPER+"
 local mod2 = mod .. "SHIFT+"
 
-local menu = "noctalia msg panel-toggle launcher"
+local menu = "fuzzel"
 local terminal = "kitty -1"
 local browser = "brave-origin"
 local nvim = { cmd = "projects nvim", class = "nvim" }
@@ -37,10 +37,8 @@ hl.bind(mod2 .. "G", hl.dsp.window.pin())
 hl.bind(mod .. "SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mod .. "P", hl.dsp.exec_cmd("dmenu-power"))
 hl.bind(mod .. "T", hl.dsp.exec_cmd(terminal))
-hl.bind(mod .. "D", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
-hl.bind(mod .. "I", hl.dsp.exec_cmd("noctalia msg notification-invoke-latest"))
-hl.bind(mod2 .. "S", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
-hl.bind(mod2 .. "B", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
+hl.bind(mod .. "D", hl.dsp.exec_cmd("makoctl dismiss"))
+hl.bind(mod .. "I", hl.dsp.exec_cmd("makoctl invoke"))
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
@@ -57,26 +55,24 @@ hl.bind(mod .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. "mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("noctalia msg media next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true })
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("noctalia msg mic-mute"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down"), { locked = true, repeating = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("volume up"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("volume down"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volume mute"), { locked = true, repeating = true })
 hl.bind(
-    "CTRL + XF86MonBrightnessUp",
-    hl.dsp.exec_cmd("noctalia msg brightness-up 1"),
+    "XF86AudioMicMute",
+    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
     { locked = true, repeating = true }
 )
-hl.bind(
-    "CTRL + XF86MonBrightnessDown",
-    hl.dsp.exec_cmd("noctalia msg brightness-down 1"),
-    { locked = true, repeating = true }
-)
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down"), { locked = true, repeating = true })
+hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up 20"), { locked = true, repeating = true })
+hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down 20"), { locked = true, repeating = true })
+hl.bind("CTRL + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up 2"), { locked = true, repeating = true })
+hl.bind("CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down 2"), { locked = true, repeating = true })
 hl.bind(
     mod .. "XF86MonBrightnessUp",
     hl.dsp.exec_cmd("brightnessctl -q -d kbd_backlight s +25%"),
