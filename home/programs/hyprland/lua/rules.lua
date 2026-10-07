@@ -34,7 +34,7 @@ hl.window_rule({
     workspace = 4,
 })
 hl.window_rule({
-    match = { class = "steam|electron" },
+    match = { class = "steam|heroic" },
     workspace = 5,
 })
 
