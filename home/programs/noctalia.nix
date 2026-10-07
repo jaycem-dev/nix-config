@@ -11,7 +11,6 @@ in
     systemd.enable = true;
     settings = {
       brightness.enable_ddcutil = true;
-      desktop_widgets.enabled = false;
       dock.background_opacity = opacity;
       location.auto_locate = true;
       notification.background_opacity = opacity;
@@ -20,14 +19,13 @@ in
 
       bar.default = {
         background_opacity = opacity;
-        concave_edge_corners = true;
+        concave_edge_corners = false;
         margin_ends = 0;
         thickness = 30;
         radius = 0;
         shadow = false;
 
         start = [
-          "launcher"
           "workspaces"
           "taskbar"
         ];
@@ -91,7 +89,6 @@ in
         media.hide_artist = true;
         network.show_label = false;
         privacy.hide_inactive = true;
-        tray.drawer = true;
         taskbar = {
           inactive_opacity = 0.6;
           only_active_workspace = true;
