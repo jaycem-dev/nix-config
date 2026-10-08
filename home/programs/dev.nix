@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   programs = {
     lazygit.enable = true;
-    devenv.enable = true;
     gh.enable = true;
     npm.enable = true;
 

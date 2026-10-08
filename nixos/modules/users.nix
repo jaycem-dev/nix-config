@@ -1,6 +1,7 @@
-{ user, ... }: {
+{ user, pkgs, ... }: {
   users.users.${user} = {
     isNormalUser = true;
+    shell = pkgs.zsh;
 
     extraGroups = [
       "video"

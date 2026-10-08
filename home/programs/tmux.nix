@@ -1,13 +1,6 @@
 {
-  pkgs,
-  lib,
-  ...
-  # TODO: use more hm opts, add stylix
-}:
-{
   programs.tmux = {
     enable = true;
-    shell = "${lib.getExe pkgs.zsh}";
     newSession = true;
     baseIndex = 1;
     escapeTime = 0;
