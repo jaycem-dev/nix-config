@@ -17,6 +17,7 @@
         tab_bar_edge = "top";
         enable_audio_bell = false;
         update_check_interval = 0;
+        background_blur = 1;
       };
 
       actionAliases = {
