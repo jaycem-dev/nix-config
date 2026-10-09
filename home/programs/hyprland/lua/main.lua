@@ -1,37 +1,21 @@
 require("lua.keybinds")
 require("lua.rules")
 
--- Global animation duration
-hl.animation({
-    leaf = "global",
-    enabled = true,
-    speed = 3,
-    bezier = "default",
-})
--- Vertical slide for workspace switches
-hl.animation({
-    leaf = "workspaces",
-    enabled = true,
-    speed = 3,
-    bezier = "default",
-    style = "slidevert",
-})
+local default_width = 0.75 -- scrolling
 
-hl.monitor({
-    output = "eDP-1",
-    mode = "preferred",
-    position = "auto",
-    scale = "1.67",
-})
+-- Speed up global animation and use vertical workspace transition
+hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slidevert" })
 
-hl.monitor({
-    output = "HDMI-A-1",
-    mode = "1920x1080@72",
-    position = "auto",
-    scale = "auto",
-})
+hl.monitor({ output = "eDP-1", mode = "preferred", scale = "1.67" })
+hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@72" })
+
+hl.gesture({ fingers = 3, direction = "vertical", action = "workspace" })
+hl.gesture({ fingers = 3, direction = "horizontal", action = "scroll_move" })
 
 hl.config({
+    animations = { enabled = true },
+    ecosystem = { no_donation_nag = true },
     cursor = { inactive_timeout = 0.5, hide_on_key_press = true },
 
     input = {
@@ -41,29 +25,12 @@ hl.config({
         repeat_rate = 30,
         repeat_delay = 400,
         follow_mouse = 1,
-
         touchpad = {
             tap_to_click = false,
             natural_scroll = true,
             clickfinger_behavior = true,
         },
     },
-})
-
-hl.gesture({
-    fingers = 3,
-    direction = "vertical",
-    action = "workspace",
-})
-
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "scroll_move",
-})
-
-hl.config({
-    animations = { enabled = true },
 
     general = {
         gaps_out = 5,
@@ -81,28 +48,23 @@ hl.config({
         blur = {
             enabled = true,
             xray = true,
-            size = 10,
+            size = 15,
             passes = 1,
         },
     },
-})
 
-hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-        column_width = 0.8,
-        explicit_column_widths = "0.5, 0.8",
-        wrap_focus = false,
-        wrap_swapcol = false,
-        follow_min_visible = 1,
-    },
-})
-
-hl.config({
-    ecosystem = { no_donation_nag = true },
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo = true,
         focus_on_activate = true,
+    },
+
+    scrolling = {
+        fullscreen_on_one_column = true,
+        column_width = default_width,
+        explicit_column_widths = "0.5, " .. default_width,
+        wrap_focus = false,
+        wrap_swapcol = false,
+        follow_min_visible = 1,
     },
 })

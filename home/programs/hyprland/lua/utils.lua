@@ -48,16 +48,6 @@ function M.spawn_or_focus_webapp(url)
     })
 end
 
----Open a URL in the browser, focusing an existing tab if one matches.
----Eg. `spawn_or_focus_url("www.youtube.com")`
----@param url string
----@return function
-function M.spawn_or_focus_url(url)
-    return function()
-        hl.dispatch(hl.dsp.exec_cmd(browser .. " --focus='https://" .. url .. "/*' https://" .. url))
-    end
-end
-
 ---Spawn or focus a terminal TUI app using kitty with a unique app ID.
 ---Eg. `spawn_or_focus_tui("yazi")`
 ---@param app string|{cmd: string, class: string}
