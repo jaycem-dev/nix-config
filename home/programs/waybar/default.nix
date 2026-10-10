@@ -20,38 +20,41 @@
       height = 30;
       privacy.icon-spacing = 10;
       tray.spacing = 10;
+      clock.format = "{:%A %H:%M}";
+      "hyprland/workspaces".show-special = true;
 
       modules-left = [
         "hyprland/workspaces"
+        "custom/ws-dots"
       ];
 
       modules-center = [
-        "hyprland/window"
+        "power-profiles-daemon"
+        "clock"
+        "idle_inhibitor"
       ];
 
       modules-right = [
         "privacy"
         "tray"
-        "idle_inhibitor"
-        "power-profiles-daemon"
         "network"
         "bluetooth"
         "pulseaudio"
         "battery"
-        "clock"
       ];
 
-      "hyprland/workspaces" = {
-        show-special = true;
+      "custom/ws-dots" = {
+        exec = "ws-dots";
+        return-type = "json";
+        restart-interval = 5;
       };
 
       power-profiles-daemon = {
         format = "{icon}";
         format-icons = {
-          default = "󰾅";
           performance = "󰓅";
-          balanced = "󰾅";
-          power-saver = "󰾆";
+          balanced = "󰗑";
+          power-saver = "󰌪";
         };
       };
 
@@ -90,7 +93,7 @@
         format-ethernet = "󰈀";
         format-linked = "󱎔";
         format-disconnected = "󰀦";
-        on-click = "spawn-or-focus tui impala";
+        on-click = "kitty -1 --app-id impala impala";
       };
 
       idle_inhibitor = {
@@ -104,8 +107,8 @@
       bluetooth = {
         format = "󰂯";
         format-off = "󰂲";
-        format-connected = "󰂰";
-        on-click = "spawn-or-focus tui bluetui";
+        format-connected = "󰂱";
+        on-click = "kitty -1 --app-id bluetui bluetui";
       };
     };
 

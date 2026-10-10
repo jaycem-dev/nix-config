@@ -1,6 +1,16 @@
 { pkgs, ... }: {
   home.packages = [
     (pkgs.writeShellApplication {
+      name = "ws-dots";
+      text = builtins.readFile ./ws-dots.sh;
+      runtimeInputs = with pkgs; [
+        hyprland
+        jq
+        libressl.nc
+      ];
+    })
+
+    (pkgs.writeShellApplication {
       name = "dmenu-power";
       text = builtins.readFile ./dmenu-power.sh;
       runtimeInputs = with pkgs; [
