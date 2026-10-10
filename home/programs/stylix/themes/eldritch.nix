@@ -2,8 +2,8 @@
   polarity = "dark";
   base16Scheme = {
     base00 = "#111111";
-    base01 = "#323449";
-    base02 = "#3b4261";
+    base01 = "#2a2a2d";
+    base02 = "#3f3f45";
     base03 = "#7081d0";
     base04 = "#a1abe0";
     base05 = "#ebfafa";
