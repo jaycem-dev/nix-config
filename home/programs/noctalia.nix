@@ -19,6 +19,7 @@ in
 
       bar.default = {
         background_opacity = opacity;
+        capsule_radius = radius;
         concave_edge_corners = false;
         margin_ends = 0;
         thickness = 30;
