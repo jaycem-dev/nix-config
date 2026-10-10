@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    waybar.url = "github:Alexays/Waybar";
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:nix-community/stylix";
     caveman = {

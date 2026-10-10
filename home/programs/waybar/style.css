@@ -1,0 +1,52 @@
+* {
+    font-weight: bold;
+}
+
+window#waybar {
+    color: @base05;
+    border-radius: 0;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 5px;
+}
+
+#idle_inhibitor.activated,
+#bluetooth.connected,
+#power-profiles-daemon.performance {
+    color: @base0D;
+}
+
+#battery.warning,
+#power-profiles-daemon.power-saver,
+#privacy {
+    color: @base09;
+}
+
+#battery.critical {
+    color: @base08;
+}
+
+#tray {
+    background-color: @base01;
+    padding: 0 10px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: @base05;
+    min-width: 0;
+}
+
+#workspaces button.empty,
+#workspaces button.hidden,
+#bluetooth.off {
+    color: @base03;
+}
+
+#workspaces button.active {
+    background-color: @base0D;
+    color: @base00;
+}

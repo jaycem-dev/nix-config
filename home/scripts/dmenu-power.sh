@@ -5,9 +5,8 @@ items=(
     "Reboot"
     "Shutdown"
     "Logout"
-    "Power off monitors"
 )
-selected=$(printf '%s\n' "${items[@]}" | noctalia dmenu -p "Power")
+selected=$(printf '%s\n' "${items[@]}" | fuzzel --dmenu)
 
 case $selected in
 "Lock") swaylock ;;
@@ -15,5 +14,4 @@ case $selected in
 "Reboot") hyprshutdown -p "shutdown -r now" ;;
 "Shutdown") hyprshutdown -p "shutdown now" ;;
 "Logout") hyprshutdown ;;
-"Power off monitors") noctalia msg dpms-off ;;
 esac
