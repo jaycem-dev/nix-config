@@ -14,6 +14,7 @@
     ./cli.nix
     ./ai.nix
     ./dev.nix
-    ./noctalia.nix
+    ./fuzzel.nix
+    ./waybar
   ];
 }

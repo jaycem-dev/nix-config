@@ -6,6 +6,7 @@
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:nix-community/stylix";
+    waybar.url = "github:Alexays/Waybar";
     caveman = {
       url = "github:JuliusBrussee/caveman/v2.6.0";
       flake = false;

@@ -34,6 +34,7 @@
     fwupd
     imagemagick
     libnotify
+    playerctl
     tealdeer
     trash-cli
     unrar

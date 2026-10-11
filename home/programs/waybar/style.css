@@ -1,0 +1,45 @@
+* {
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    color: @base05;
+    border-radius: 0;
+}
+
+#battery.critical,
+#privacy {
+    color: @base08;
+}
+
+#tray {
+    background-color: @base02;
+    padding: 0 10px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 10px;
+}
+
+#workspaces.main button {
+    padding: 0 5px;
+    color: @base05;
+}
+
+#workspaces.main button.active {
+    background-color: @base0D;
+    color: @base00;
+}
+
+#workspaces.taskbar button.taskbar-window {
+    padding: 0 5px;
+}
+
+#workspaces.taskbar button.taskbar-window.active {
+    background-color: @base02;
+}

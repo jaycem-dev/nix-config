@@ -39,7 +39,6 @@ in
 
     targets = {
       neovim.enable = !(theme ? neovim); # use theme colorscheme when set
-      hyprland.hyprpaper.enable = false; # it's enabled with hyprland
       fzf.enable = false; # env variables only update on logout, not useful
     };
 
