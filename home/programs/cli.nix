@@ -32,9 +32,11 @@
     exfatprogs
     ffmpeg
     fwupd
+    grim
     imagemagick
     libnotify
     playerctl
+    slurp
     tealdeer
     trash-cli
     unrar

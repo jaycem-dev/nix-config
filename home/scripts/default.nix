@@ -59,6 +59,17 @@
     })
 
     (pkgs.writeShellApplication {
+      name = "screenshot";
+      text = builtins.readFile ./screenshot.sh;
+      runtimeInputs = with pkgs; [
+        grim
+        libnotify
+        slurp
+        wl-clipboard
+      ];
+    })
+
+    (pkgs.writeShellApplication {
       name = "set-wallpaper";
       text = builtins.readFile ./set-wallpaper.sh;
       runtimeInputs = with pkgs; [
