@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -38,6 +39,7 @@ in
       which-key-nvim
     ];
     initLua = ''
+      vim.opt.shell = "${lib.getExe pkgs.zsh}"
       vim.opt.winborder = "${border}"
       vim.opt.pumborder = "${border}"
       ${builtins.readFile ./lua/options.lua}

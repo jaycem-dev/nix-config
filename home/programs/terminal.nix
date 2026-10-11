@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   programs = {
     kitty = {
@@ -7,6 +12,7 @@
       quickAccessTerminalConfig.background_opacity = config.stylix.opacity.terminal;
 
       settings = {
+        shell = lib.getExe pkgs.zsh;
         cursor_trail = 1;
         tab_bar_edge = "top";
         enable_audio_bell = false;
