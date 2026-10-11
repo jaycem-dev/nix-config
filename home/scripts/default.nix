@@ -1,5 +1,16 @@
 { pkgs, ... }: {
   home.packages = [
+    # workaround script until the hyprland-workspace-taskbar sort is fixed
+    (pkgs.writeShellApplication {
+      name = "ws-dots";
+      text = builtins.readFile ./ws-dots.sh;
+      runtimeInputs = with pkgs; [
+        hyprland
+        jq
+        libressl.nc
+      ];
+    })
+
     (pkgs.writeShellApplication {
       name = "projects-picker";
       text = builtins.readFile ./projects-picker.sh;

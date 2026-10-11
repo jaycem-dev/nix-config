@@ -18,19 +18,18 @@
       spacing = 15;
       height = 30;
       blur = true;
-      "hyprland/workspaces#main".show-special = true;
       clock.format = "{:%A %H:%M}";
       privacy.icon-spacing = 10;
       tray.spacing = 10;
 
       modules-left = [
-        "clock"
-        "hyprland/workspaces#taskbar"
+        "hyprland/workspaces#main"
+        "custom/ws-dots"
       ];
 
       modules-center = [
         "power-profiles-daemon"
-        "hyprland/workspaces#main"
+        "clock"
         "idle_inhibitor"
       ];
 
@@ -43,6 +42,16 @@
         "battery"
       ];
 
+      "hyprland/workspaces#main" = {
+        format = "{icon}";
+        show-special = true;
+        format-icons = {
+          "special:scratch" = "S";
+          "special:music" = "M";
+          "special:ai" = "A";
+        };
+      };
+
       "hyprland/workspaces#taskbar" = {
         format = "{windows}";
         format-window-separator = "";
@@ -51,6 +60,12 @@
           enable = true;
           update-active-window = true;
         };
+      };
+
+      "custom/ws-dots" = {
+        exec = "ws-dots";
+        return-type = "json";
+        restart-interval = 5;
       };
 
       power-profiles-daemon = {
