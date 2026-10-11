@@ -18,40 +18,32 @@ in
       wallpaper.directory = "~/Pictures/Wallpapers";
 
       bar.default = {
+        position = "left";
         background_opacity = opacity;
-        capsule_radius = radius;
+        margin_ends = 5;
         concave_edge_corners = false;
-        margin_ends = 0;
-        thickness = 30;
-        radius = 0;
-        shadow = false;
+        thickness = 40;
+        radius = radius;
+        capsule_radius = radius;
 
         start = [
-          "workspaces"
+          "notifications"
+          "clock"
           "taskbar"
         ];
         center = [
-          "clock"
-          "notifications"
+          "workspaces"
         ];
         end = [
           "privacy"
-          "group:g1"
+          "tray"
+          "power_profile"
+          "caffeine"
           "network"
           "bluetooth"
           "volume"
           "brightness"
           "battery"
-        ];
-        capsule_group = [
-          {
-            id = "g1";
-            members = [
-              "tray"
-              "caffeine"
-              "power_profile"
-            ];
-          }
         ];
       };
 
@@ -75,24 +67,21 @@ in
       shell = {
         corner_radius_scale = radiusScale;
         launch_apps_as_systemd_services = true;
+        polkit_agent = true;
         panel.transparency_mode = "soft";
-
-      };
-
-      theme.templates = {
-        enable_builtin_templates = false;
-        enable_community_templates = false;
       };
 
       widget = {
-        clock.format = "{:%A, %b %d  %H:%M}";
         keyboard_layout.show_label = false;
         media.hide_artist = true;
         network.show_label = false;
+        tray.capsule = true;
         privacy.hide_inactive = true;
         taskbar = {
+          scale = 1.2;
           inactive_opacity = 0.6;
           only_active_workspace = true;
+          capsule = true;
         };
       };
     };
