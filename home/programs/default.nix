@@ -15,6 +15,7 @@
     ./ai.nix
     ./dev.nix
     ./fuzzel.nix
+    ./hyprlock.nix
     ./waybar
   ];
 }

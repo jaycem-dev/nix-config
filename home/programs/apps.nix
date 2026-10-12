@@ -5,7 +5,6 @@
     mpv.enable = true;
     zed-editor.enable = true;
     libreoffice.enable = true;
-    hyprlock.enable = true;
     imv.enable = true;
   };
 
