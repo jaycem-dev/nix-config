@@ -110,6 +110,7 @@
         format-muted = "󰝟";
         format-icons = {
           headphone = "󰋋";
+          headset = "󰋎";
           default = [
             "󰕿"
             "󰖀"
