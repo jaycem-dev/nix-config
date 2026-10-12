@@ -48,5 +48,12 @@
       enable = true;
       createDirectories = true;
     };
+    mimeApps = {
+      enable = true;
+      defaultApplicationPackages = [
+        pkgs.imv
+        pkgs.mpv
+      ];
+    };
   };
 }

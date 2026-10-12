@@ -6,6 +6,7 @@
     zed-editor.enable = true;
     libreoffice.enable = true;
     hyprlock.enable = true;
+    imv.enable = true;
   };
 
   home.packages = with pkgs; [
