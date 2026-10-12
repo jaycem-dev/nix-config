@@ -23,6 +23,7 @@
     seahorse
     signal-desktop
     transmission_4-gtk
+    qalculate-gtk
 
     # file manager
     (thunar.override {
