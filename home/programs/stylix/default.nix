@@ -14,7 +14,7 @@ in
   options.userSettings.theme = {
     name = lib.mkOption {
       type = lib.types.str;
-      default = "rose-pine";
+      default = "catppuccin-mocha";
       description = "Name of the theme file in home/programs/stylix/themes";
     };
 
