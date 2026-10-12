@@ -37,7 +37,7 @@ hl.bind(mod .. "p", hl.dsp.exec_cmd("dmenu-power"))
 hl.bind(mod2 .. "b", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
 hl.bind(mod .. "t", hl.dsp.exec_cmd("kitty -1"))
 hl.bind(mod .. "d", hl.dsp.exec_cmd("makoctl dismiss"))
-hl.bind(mod .. "i", hl.dsp.exec_cmd("makoctl invoke"))
+hl.bind(mod .. "i", hl.dsp.exec_cmd("makoctl invoke && makoctl dismiss"))
 hl.bind(mod2 .. "q", hl.dsp.exec_cmd("hyprshutdown"))
 hl.bind(mod2 .. "s", hl.dsp.exec_cmd("screenshot"))
 
