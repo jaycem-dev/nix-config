@@ -36,6 +36,7 @@
       modules-right = [
         "privacy"
         "tray"
+        "custom/hyprsunset"
         "network"
         "bluetooth"
         "pulseaudio"
@@ -66,6 +67,12 @@
         exec = "ws-dots";
         return-type = "json";
         restart-interval = 5;
+      };
+
+      "custom/hyprsunset" = {
+        format = "";
+        tooltip = "Toggle blue-light filter";
+        on-click = "hyprsunset-toggle";
       };
 
       power-profiles-daemon = {

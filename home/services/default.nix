@@ -10,6 +10,7 @@
     gnome-keyring.enable = true;
     hyprpaper.enable = true;
     hyprpolkitagent.enable = true;
+    hyprsunset.enable = true;
 
     syncthing = {
       enable = true;

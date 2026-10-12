@@ -78,5 +78,14 @@
         libnotify
       ];
     })
+
+    (pkgs.writeShellApplication {
+      name = "hyprsunset-toggle";
+      text = builtins.readFile ./hyprsunset-toggle.sh;
+      runtimeInputs = with pkgs; [
+        hyprland
+        hyprsunset
+      ];
+    })
   ];
 }
