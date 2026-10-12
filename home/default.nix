@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   user,
   ...
@@ -15,7 +14,6 @@
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
-  # TODO: move this
   gtk.gtk3.bookmarks = [
     "file:///home/${user}/Projects"
     "file:///home/${user}/Pictures"
@@ -36,7 +34,6 @@
 
   xdg = {
     localBinInPath = true;
-    # autocreate user dirs
     userDirs = {
       enable = true;
       createDirectories = true;

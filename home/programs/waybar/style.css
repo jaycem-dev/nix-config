@@ -45,3 +45,9 @@ window#waybar {
 #workspaces.taskbar button.taskbar-window.active {
     background-color: @base02;
 }
+
+tooltip {
+    background-color: @base00;
+    border: 1px solid @base0D;
+    color: @base05;
+}

@@ -18,7 +18,6 @@
       spacing = 15;
       height = 30;
       blur = true;
-      clock.format = "{:%A %H:%M}";
       privacy.icon-spacing = 10;
       tray.spacing = 10;
 
@@ -73,6 +72,27 @@
         format = "";
         tooltip = "Toggle blue-light filter";
         on-click = "hyprsunset-toggle";
+      };
+
+      clock = {
+        format = "{:%A %H:%M}";
+        tooltip-format = "<tt>{calendar}</tt>";
+        calendar = with config.lib.stylix.colors.withHashtag; {
+          mode = "month";
+          on-scroll = 1;
+          first-day-of-week = 1; # monday
+          format = {
+            months = "<span color='${base0D}'><b>{}</b></span>";
+            weekdays = "<span color='${base0C}'><b>{}</b></span>";
+            today = "<span color='${base0A}'><b><u>{}</u></b></span>";
+          };
+        };
+        actions = {
+          on-click-right = "mode";
+          on-scroll-up = "shift_up";
+          on-scroll-down = "shift_down";
+        };
+        on-click = "brave-origin --app=https://calendar.proton.me";
       };
 
       power-profiles-daemon = {
