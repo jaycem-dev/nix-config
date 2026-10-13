@@ -15,6 +15,7 @@
     enable = true;
     openFirewall = true;
     capSysAdmin = true; # KMS/DRM capture, no portal needed
+    settings.capture = "kms"; # force KMS
   };
 
   hardware = {
