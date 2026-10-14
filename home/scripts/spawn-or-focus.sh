@@ -36,7 +36,7 @@ webapp)
 esac
 
 # niri's focus-window requires a numeric window ID, not an app_id
-ID=$(niri msg --json windows | jq -r --arg id "$ID" '[.[] | select(.app_id == $id) | .id][0] // empty')
+ID=$(niri msg --json windows | jq -r --arg id "$ID" '[.[] | select(.app_id == $id and .is_floating == false) | .id][0] // empty')
 
 if [ -n "$ID" ]; then
     niri msg action focus-window --id "$ID"
