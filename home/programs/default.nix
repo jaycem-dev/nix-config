@@ -2,6 +2,7 @@
   imports = [
     ./neovim
     ./hyprland
+    ./niri
     ./stylix
     ./beets.nix
     ./browser.nix

@@ -1,0 +1,71 @@
+// rounded corners
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+// Make inactive windows semitransparent with blur
+window-rule {
+    match is-active=false
+    opacity 0.9
+     background-effect {
+        blur true
+    }
+}
+
+// Open the Firefox and Chromium PIP floating by default.
+window-rule {
+    match title="^Picture-in-Picture$"
+    match title="^Picture in picture$"
+    open-floating true
+    default-floating-position x=10 y=10 relative-to="top-right"
+    default-column-width { fixed 400; }
+    default-window-height { fixed 225; }
+    open-focused false
+}
+
+// Block out apps from screen capture.
+window-rule {
+    match app-id=r#"^org\.gnome\.seahorse\.Application$"#
+    block-out-from "screen-capture"
+}
+
+// browser workspace apps
+window-rule {
+    match app-id=r#"brave-origin"#
+    open-on-workspace "1"
+    open-focused true
+}
+// dev workspace apps
+window-rule {
+    match app-id=r#"nvim"#
+    match app-id=r#"opencode"#
+    match app-id=r#"kitty"#
+    match app-id=r#"foot"#
+    match app-id=r#"com.mitchellh.ghostty"#
+    open-on-workspace "2"
+    open-focused true
+}
+// media workspace apps
+window-rule {
+    match app-id=r#"kopuz"#
+    match app-id=r#"brave-open.spotify.com__-Default"#
+    match app-id=r#"brave-music.youtube.com__-Default"#
+    open-on-workspace "3"
+    open-focused true
+}
+// chat workspace apps
+window-rule {
+    match app-id=r#"brave-web.whatsapp.com__-Default"#
+    match app-id=r#"brave-mail.proton.me__-Default"#
+    match app-id=r#"signal"#
+    open-on-workspace "4"
+    open-focused true
+}
+// gaming
+window-rule {
+    match app-id=r#"steam"#
+    match app-id=r#"heroic"#
+    open-on-workspace "5"
+    open-focused true
+}

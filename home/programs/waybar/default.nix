@@ -23,7 +23,9 @@
 
       modules-left = [
         "hyprland/workspaces#main"
-        "custom/ws-dots"
+        "hyprland/workspaces#taskbar"
+        "niri/workspaces#main"
+        "niri/workspaces#taskbar"
       ];
 
       modules-center = [
@@ -35,7 +37,6 @@
       modules-right = [
         "privacy"
         "tray"
-        "custom/hyprsunset"
         "network"
         "bluetooth"
         "pulseaudio"
@@ -62,16 +63,13 @@
         };
       };
 
-      "custom/ws-dots" = {
-        exec = "ws-dots";
-        return-type = "json";
-        restart-interval = 5;
+      "niri/workspaces#main" = {
+        format = "{index}";
       };
 
-      "custom/hyprsunset" = {
-        format = "";
-        tooltip = "Toggle blue-light filter";
-        on-click = "hyprsunset-toggle";
+      "niri/workspaces#taskbar" = {
+        current-only = true;
+        workspace-taskbar.enable = true;
       };
 
       clock = {

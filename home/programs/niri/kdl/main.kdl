@@ -1,0 +1,69 @@
+spawn-at-startup "kitty" "--start-as=hidden"
+
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
+workspace "5"
+
+prefer-no-csd 
+
+output "eDP-1" {
+    scale 1.7
+}
+output "HDMI-A-1" {
+    mode "1920x1080@71.910"
+    scale 1
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 24
+}
+
+layout {
+    gaps 10
+    center-focused-column "never" // never, always, on-overflow
+    always-center-single-column
+    default-column-width { proportion 0.5; }
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.66667
+    }
+    preset-window-heights {
+        proportion 0.2
+        proportion 0.66667
+    }
+    focus-ring {
+        on
+        width 2
+    }
+    border {
+        off
+        width 2
+    }
+}
+
+input {
+    // warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="30%" // 0% only focus windows that are already fully on screen
+    keyboard {
+        xkb {
+            layout "us"
+            variant "colemak_dh_iso"
+            options "caps:escape"
+        }
+    }
+    touchpad {
+        dwt // disable-while-typing
+        natural-scroll
+    }
+}
+
+include "./binds.kdl"
+include "./rules.kdl"

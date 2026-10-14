@@ -40,6 +40,16 @@
     })
 
     (pkgs.writeShellApplication {
+      name = "spawn-or-focus";
+      text = builtins.readFile ./spawn-or-focus.sh;
+      runtimeInputs = with pkgs; [
+        kitty
+        jq
+        brave-origin
+      ];
+    })
+
+    (pkgs.writeShellApplication {
       name = "brightness";
       text = builtins.readFile ./brightness.sh;
       runtimeInputs = with pkgs; [
