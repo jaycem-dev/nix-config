@@ -1,16 +1,5 @@
 { pkgs, ... }: {
   home.packages = [
-    # workaround script until the hyprland-workspace-taskbar sort is fixed
-    (pkgs.writeShellApplication {
-      name = "ws-dots";
-      text = builtins.readFile ./ws-dots.sh;
-      runtimeInputs = with pkgs; [
-        hyprland
-        jq
-        libressl.nc
-      ];
-    })
-
     (pkgs.writeShellApplication {
       name = "projects-picker";
       text = builtins.readFile ./projects-picker.sh;
@@ -50,6 +39,16 @@
     })
 
     (pkgs.writeShellApplication {
+      name = "toggle-display";
+      text = builtins.readFile ./toggle-display.sh;
+      runtimeInputs = with pkgs; [
+        hyprland
+        niri
+        libnotify
+      ];
+    })
+
+    (pkgs.writeShellApplication {
       name = "brightness";
       text = builtins.readFile ./brightness.sh;
       runtimeInputs = with pkgs; [
@@ -83,18 +82,9 @@
       name = "set-wallpaper";
       text = builtins.readFile ./set-wallpaper.sh;
       runtimeInputs = with pkgs; [
-        hyprland
+        wpaperd
         file
         libnotify
-      ];
-    })
-
-    (pkgs.writeShellApplication {
-      name = "hyprsunset-toggle";
-      text = builtins.readFile ./hyprsunset-toggle.sh;
-      runtimeInputs = with pkgs; [
-        hyprland
-        hyprsunset
       ];
     })
   ];

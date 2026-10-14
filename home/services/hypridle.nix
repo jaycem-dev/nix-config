@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 let
-  monitorOn = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch 'hl.dsp.dpms({ action = [[enable]] })'";
-  monitorOff = "${lib.getExe' pkgs.hyprland "hyprctl"} dispatch 'hl.dsp.dpms({ action = [[disable]] })'";
+  monitorOn = "toggle-display on";
+  monitorOff = "toggle-display off";
   lockCmd = lib.getExe pkgs.hyprlock;
 in
 {

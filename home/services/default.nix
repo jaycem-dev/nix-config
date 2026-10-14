@@ -8,9 +8,8 @@
     udiskie.enable = true;
     playerctld.enable = true;
     gnome-keyring.enable = true;
-    hyprpaper.enable = true;
+    wpaperd.enable = true;
     hyprpolkitagent.enable = true;
-    hyprsunset.enable = true;
 
     syncthing = {
       enable = true;
