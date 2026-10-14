@@ -5,7 +5,13 @@
     enable = true;
     extraConfig = ''
       include optional=true "${config.xdg.configHome}/niri/kdl/main.kdl"
+
+      window-rule {
+        geometry-corner-radius ${toString config.userSettings.theme.borderRadius}
+        clip-to-geometry true
+      }
     '';
+
     settings = with config.lib.stylix.colors.withHashtag; {
       overview.backdrop-color = base00;
 

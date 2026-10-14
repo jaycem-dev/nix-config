@@ -1,9 +1,3 @@
-// rounded corners
-window-rule {
-    geometry-corner-radius 0
-    clip-to-geometry true
-}
-
 // Make inactive windows semitransparent with blur
 window-rule {
     match is-active=false
