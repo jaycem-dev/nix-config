@@ -42,12 +42,10 @@ in
       vim.opt.shell = "${lib.getExe pkgs.zsh}"
       vim.opt.winborder = "${border}"
       vim.opt.pumborder = "${border}"
-      ${builtins.readFile ./lua/options.lua}
-      ${builtins.readFile ./lua/plugins.lua}
+      ${builtins.readFile ./lua/main.lua}
       ${builtins.readFile ./lua/picker.lua}
       ${builtins.readFile ./lua/languages.lua}
       ${builtins.readFile ./lua/keymaps.lua}
-      ${builtins.readFile ./lua/autocmd.lua}
     '';
   };
 }
