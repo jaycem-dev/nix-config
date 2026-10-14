@@ -14,7 +14,7 @@ hl.bind(mod .. "F", function()
             )
         )
     end
-end)
+end, { desc = "Toggle between full width and default size (scrolling)" })
 
 hl.bind(mod .. "r", hl.dsp.layout("colresize +conf"))
 hl.bind(mod2 .. "left", hl.dsp.layout("swapcol l"))
@@ -29,13 +29,22 @@ hl.bind(mod .. "up", utils.focus_column_or_workspace("u"))
 hl.bind(mod .. "down", utils.focus_column_or_workspace("d"))
 hl.bind(mod2 .. "up", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod2 .. "down", hl.dsp.window.move({ direction = "down" }))
-hl.bind(mod .. "v", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod2 .. "g", hl.dsp.window.pin())
+hl.bind(mod2 .. "v", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mod .. "v", function()
+    local window = hl.get_active_window()
+    if not window then
+        return
+    end
+    hl.dispatch(hl.dsp.window.cycle_next({
+        floating = not window.floating,
+        tiled = window.floating,
+    }))
+end, { desc = "Switch focus between tiled and floating windows" })
 
 hl.bind(mod .. "space", hl.dsp.exec_cmd("fuzzel"))
 hl.bind(mod .. "p", hl.dsp.exec_cmd("dmenu-power"))
 hl.bind(mod2 .. "b", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
-hl.bind(mod .. "t", hl.dsp.exec_cmd("kitty -1"))
 hl.bind(mod .. "d", hl.dsp.exec_cmd("makoctl dismiss"))
 hl.bind(mod .. "i", hl.dsp.exec_cmd("makoctl invoke && makoctl dismiss"))
 hl.bind(mod2 .. "q", hl.dsp.exec_cmd("hyprshutdown"))
@@ -46,6 +55,7 @@ hl.bind(mod .. "n", utils.spawn_or_focus_tui({ cmd = "projects-picker nvim", cla
 hl.bind(mod2 .. "n", hl.dsp.exec_cmd(utils.tui_cmd({ cmd = "projects-picker nvim", class = "nvim" })))
 hl.bind(mod .. "g", utils.spawn_or_focus("steam"))
 hl.bind(mod .. "b", utils.spawn_or_focus("brave-origin"))
+hl.bind(mod .. "t", utils.spawn_or_focus({ cmd = "kitty -1", class = "kitty" }))
 hl.bind(mod .. "w", utils.spawn_or_focus_webapp("web.whatsapp.com"))
 hl.bind(mod2 .. "m", utils.spawn_or_focus_webapp("mail.proton.me"))
 
