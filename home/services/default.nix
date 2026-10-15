@@ -1,15 +1,8 @@
 {
-  imports = [
-    ./mako.nix
-    ./hypridle.nix
-  ];
-
   services = {
     udiskie.enable = true;
     playerctld.enable = true;
     gnome-keyring.enable = true;
-    wpaperd.enable = true;
-    hyprpolkitagent.enable = true;
 
     syncthing = {
       enable = true;

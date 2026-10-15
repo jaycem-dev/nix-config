@@ -42,13 +42,14 @@ hl.bind(mod .. "v", function()
     }))
 end, { desc = "Switch focus between tiled and floating windows" })
 
-hl.bind(mod .. "space", hl.dsp.exec_cmd("fuzzel"))
-hl.bind(mod .. "p", hl.dsp.exec_cmd("dmenu-power"))
-hl.bind(mod2 .. "b", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
-hl.bind(mod .. "d", hl.dsp.exec_cmd("makoctl dismiss"))
-hl.bind(mod .. "i", hl.dsp.exec_cmd("makoctl invoke && makoctl dismiss"))
+hl.bind(mod .. "space", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
+hl.bind(mod .. "p", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
+hl.bind(mod .. "tab", hl.dsp.exec_cmd("noctalia msg window-switcher"))
+hl.bind(mod2 .. "b", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
+hl.bind(mod .. "d", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
+hl.bind(mod .. "i", hl.dsp.exec_cmd("noctalia msg notification-invoke-latest"))
 hl.bind(mod2 .. "q", hl.dsp.exec_cmd("hyprshutdown"))
-hl.bind(mod2 .. "s", hl.dsp.exec_cmd("screenshot"))
+hl.bind(mod2 .. "s", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
 
 hl.bind(mod .. "e", utils.spawn_or_focus_tui("yazi"))
 hl.bind(mod .. "n", utils.spawn_or_focus_tui({ cmd = "projects-picker nvim", class = "nvim" }))
@@ -74,17 +75,43 @@ hl.bind(mod .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. "mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("volume up"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("volume down"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volume mute"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("volume micmute"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down"), { locked = true, repeating = true })
-hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up 20"), { locked = true, repeating = true })
-hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down 20"), { locked = true, repeating = true })
-hl.bind("CTRL + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightness up 2"), { locked = true, repeating = true })
-hl.bind("CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightness down 2"), { locked = true, repeating = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("noctalia msg media next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("noctalia msg mic-mute"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down"), { locked = true, repeating = true })
+hl.bind(
+    "SHIFT + XF86MonBrightnessUp",
+    hl.dsp.exec_cmd("noctalia msg brightness-up 20"),
+    { locked = true, repeating = true }
+)
+hl.bind(
+    "SHIFT + XF86MonBrightnessDown",
+    hl.dsp.exec_cmd("noctalia msg brightness-down 20"),
+    { locked = true, repeating = true }
+)
+hl.bind(
+    "CTRL + XF86MonBrightnessUp",
+    hl.dsp.exec_cmd("noctalia msg brightness-up 1"),
+    { locked = true, repeating = true }
+)
+hl.bind(
+    "CTRL + XF86MonBrightnessDown",
+    hl.dsp.exec_cmd("noctalia msg brightness-down 1"),
+    { locked = true, repeating = true }
+)
+hl.bind(
+    mod .. "XF86MonBrightnessUp",
+    hl.dsp.exec_cmd("noctalia msg keyboard-backlight-up"),
+    { locked = true, repeating = true }
+)
+hl.bind(
+    mod .. "XF86MonBrightnessDown",
+    hl.dsp.exec_cmd("noctalia msg keyboard-backlight-down"),
+    { locked = true, repeating = true }
+)
