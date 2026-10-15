@@ -42,11 +42,11 @@ layout {
     }
     focus-ring {
         on
-        width 3
+        width 2
     }
     border {
         off
-        width 3
+        width 2
     }
 }
 
