@@ -98,8 +98,8 @@
         format = "{icon}";
         format-icons = {
           performance = "󰓅";
-          balanced = "󰾅";
-          power-saver = "󰾆";
+          balanced = "󰗑";
+          power-saver = "󰌪";
         };
       };
 
