@@ -30,7 +30,7 @@ cursor {
 layout {
     gaps 5
     center-focused-column "never" // never, always, on-overflow
-    always-center-single-column
+    // always-center-single-column
     default-column-width { proportion 0.5; }
     preset-column-widths {
         proportion 0.5

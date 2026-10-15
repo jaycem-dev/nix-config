@@ -63,3 +63,8 @@ window-rule {
     open-on-workspace "5"
     open-focused true
 }
+
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}

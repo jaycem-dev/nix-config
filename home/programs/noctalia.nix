@@ -16,11 +16,13 @@ in
       notification.background_opacity = opacity;
       osd.background_opacity = opacity;
       wallpaper.directory = "~/Pictures/Wallpapers";
+      backdrop.enabled = true; # niri
 
       bar.default = {
         position = "left";
         background_opacity = opacity;
         margin_ends = 5;
+        margin_edge = 5;
         concave_edge_corners = false;
         thickness = 40;
         radius = radius;
@@ -31,9 +33,11 @@ in
           "clock"
           "taskbar"
         ];
+
         center = [
           "workspaces"
         ];
+
         end = [
           "privacy"
           "tray"
@@ -53,10 +57,12 @@ in
             action = "lock";
             timeout = 180;
           };
+
           "lock-and-suspend" = {
             action = "lock_and_suspend";
             timeout = 300;
           };
+
           "screen-off" = {
             action = "screen_off";
             timeout = 120;
@@ -77,6 +83,7 @@ in
         network.show_label = false;
         tray.capsule = true;
         privacy.hide_inactive = true;
+
         taskbar = {
           scale = 1.2;
           inactive_opacity = 0.6;
