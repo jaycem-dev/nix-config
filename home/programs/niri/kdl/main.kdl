@@ -66,5 +66,9 @@ input {
     }
 }
 
+blur {
+    offset 10
+}
+
 include "./binds.kdl"
 include "./rules.kdl"
