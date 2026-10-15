@@ -28,7 +28,7 @@ cursor {
 }
 
 layout {
-    gaps 10
+    gaps 5
     center-focused-column "never" // never, always, on-overflow
     always-center-single-column
     default-column-width { proportion 0.5; }
@@ -41,11 +41,11 @@ layout {
         proportion 0.66667
     }
     focus-ring {
-        on
+        off
         width 2
     }
     border {
-        off
+        on
         width 2
     }
 }
