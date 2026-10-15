@@ -19,7 +19,7 @@
       cp = "cp -i";
       mv = "mv -i";
       mkdir = "mkdir -p";
-      hs = "nh home switch";
+      hs = "nh home switch -b backup";
       ns = "nh os switch";
     };
   };
