@@ -37,7 +37,9 @@ in
       oil-nvim
       render-markdown-nvim
       which-key-nvim
+      fff-nvim
     ];
+
     initLua = ''
       vim.opt.shell = "${lib.getExe pkgs.zsh}"
       vim.opt.winborder = "${border}"

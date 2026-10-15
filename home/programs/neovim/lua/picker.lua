@@ -10,11 +10,11 @@ vim.keymap.set("n", "<leader>gc", "<cmd>Pick git_commits<cr>", { desc = "Git com
 
 -- files & buffers
 vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "Buffers" })
-vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "Files" })
+-- vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "Files" })
 
 -- search
-vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep<cr>", { desc = "Grep" })
-vim.keymap.set("n", "<leader>/", "<cmd>Pick grep_live<cr>", { desc = "Live grep" })
+-- vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep<cr>", { desc = "Grep" })
+-- vim.keymap.set("n", "<leader>/", "<cmd>Pick grep_live<cr>", { desc = "Live grep" })
 
 -- misc
 vim.keymap.set("n", "<leader><leader>", "<cmd>Pick resume<cr>", { desc = "Resume" })
