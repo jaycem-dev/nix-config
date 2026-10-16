@@ -2,8 +2,8 @@ require("lua.keybinds")
 require("lua.rules")
 
 -- Speed up global animation and use vertical workspace transition
-hl.animation({ leaf = "global", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 4, bezier = "default", style = "slidevert" })
+hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slidevert" })
 
 hl.monitor({ output = "eDP-1", mode = "preferred", scale = "1.67" })
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@72" })
@@ -31,8 +31,8 @@ hl.config({
     },
 
     general = {
-        gaps_out = 5,
-        gaps_in = 2.5,
+        gaps_out = 10,
+        gaps_in = 5,
         border_size = 2,
         allow_tearing = false,
         layout = "scrolling",
@@ -46,7 +46,7 @@ hl.config({
         blur = {
             enabled = true,
             xray = true,
-            size = 15,
+            size = 10,
             passes = 1,
         },
     },
@@ -58,7 +58,7 @@ hl.config({
     },
 
     scrolling = {
-        fullscreen_on_one_column = true,
+        fullscreen_on_one_column = false,
         column_width = 0.667,
         explicit_column_widths = "0.5, 0.667",
         wrap_focus = false,

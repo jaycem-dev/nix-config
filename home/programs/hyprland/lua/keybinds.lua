@@ -56,7 +56,7 @@ hl.bind(mod .. "n", utils.spawn_or_focus_tui({ cmd = "projects-picker nvim", cla
 hl.bind(mod2 .. "n", hl.dsp.exec_cmd(utils.tui_cmd({ cmd = "projects-picker nvim", class = "nvim" })))
 hl.bind(mod .. "g", utils.spawn_or_focus("steam"))
 hl.bind(mod .. "b", utils.spawn_or_focus("brave-origin"))
-hl.bind(mod .. "t", utils.spawn_or_focus({ cmd = "kitty -1", class = "kitty" }))
+hl.bind(mod .. "t", hl.dsp.exec_cmd("kitty -1"))
 hl.bind(mod .. "w", utils.spawn_or_focus_webapp("web.whatsapp.com"))
 hl.bind(mod2 .. "m", utils.spawn_or_focus_webapp("mail.proton.me"))
 
