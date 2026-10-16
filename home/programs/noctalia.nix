@@ -19,30 +19,30 @@ in
       backdrop.enabled = true; # niri
 
       bar.default = {
-        position = "left";
+        position = "bottom";
         background_opacity = opacity;
-        margin_ends = 5;
+        margin_ends = 10;
         margin_edge = 5;
         concave_edge_corners = false;
-        thickness = 40;
+        thickness = 30;
         radius = radius;
         capsule_radius = radius;
 
         start = [
           "notifications"
-          "clock"
+          "workspaces"
           "taskbar"
         ];
 
         center = [
-          "workspaces"
+          "power_profile"
+          "clock"
+          "caffeine"
         ];
 
         end = [
           "privacy"
           "tray"
-          "power_profile"
-          "caffeine"
           "network"
           "bluetooth"
           "volume"
@@ -81,8 +81,11 @@ in
         keyboard_layout.show_label = false;
         media.hide_artist = true;
         network.show_label = false;
-        tray.capsule = true;
+        tray.drawer = true;
         privacy.hide_inactive = true;
+        clock.format = "{:%A %H:%M}";
+        volume.show_label = false;
+        brightness.show_label = false;
 
         taskbar = {
           scale = 1.2;
