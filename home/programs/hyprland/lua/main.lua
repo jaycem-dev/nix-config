@@ -33,7 +33,7 @@ hl.config({
     general = {
         gaps_out = 5,
         gaps_in = 2.5,
-        border_size = 3,
+        border_size = 2,
         allow_tearing = false,
         layout = "scrolling",
         no_focus_fallback = true,
@@ -58,7 +58,7 @@ hl.config({
     },
 
     scrolling = {
-        fullscreen_on_one_column = true,
+        fullscreen_on_one_column = false,
         column_width = 0.7,
         explicit_column_widths = "0.5, 0.7",
         wrap_focus = false,
