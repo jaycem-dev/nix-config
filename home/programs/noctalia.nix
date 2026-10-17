@@ -21,7 +21,7 @@ in
       bar.default = {
         position = "bottom";
         background_opacity = opacity;
-        margin_ends = 10;
+        margin_ends = 5;
         margin_edge = 5;
         concave_edge_corners = false;
         thickness = 30;
