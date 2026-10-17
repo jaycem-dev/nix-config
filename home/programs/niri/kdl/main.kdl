@@ -31,10 +31,10 @@ layout {
     gaps 5
     center-focused-column "never" // never, always, on-overflow
     // always-center-single-column
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.7; }
     preset-column-widths {
         proportion 0.5
-        proportion 0.66667
+        proportion 0.7
     }
     preset-window-heights {
         proportion 0.2
