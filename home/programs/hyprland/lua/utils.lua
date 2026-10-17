@@ -14,7 +14,7 @@ function M.spawn_or_focus(app)
         app = { cmd = app, class = app }
     end
     return function()
-        local w = hl.get_window("class:" .. app.class)
+        local w = hl.get_windows({ class = app.class, floating = false })[1]
         if w then
             hl.dispatch(hl.dsp.focus({ window = w }))
         else
