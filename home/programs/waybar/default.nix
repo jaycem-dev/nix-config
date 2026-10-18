@@ -14,8 +14,8 @@
     systemd.enable = true;
     settings.mainBar = {
       layer = "top";
-      position = "bottom";
-      margin = "0 5px 5px 5px";
+      position = "top";
+      # margin = "0 5px 5px 5px";
       spacing = 15;
       height = 30;
       blur = true;
@@ -23,15 +23,15 @@
       tray.spacing = 10;
 
       modules-left = [
-        "clock"
-        "niri/workspaces#taskbar"
+        "hyprland/workspaces#main"
         "hyprland/workspaces#taskbar"
+        "niri/workspaces#main"
+        "niri/workspaces#taskbar"
       ];
 
       modules-center = [
         "power-profiles-daemon"
-        "hyprland/workspaces#main"
-        "niri/workspaces#main"
+        "clock"
         "idle_inhibitor"
       ];
 
