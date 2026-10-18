@@ -17,6 +17,7 @@ hl.bind(mod .. "F", function()
 end, { desc = "Toggle between full width and default size (scrolling)" })
 
 hl.bind(mod .. "r", hl.dsp.layout("colresize +conf"))
+hl.bind(mod2 .. "r", hl.dsp.layout("fit visible"))
 hl.bind(mod2 .. "left", hl.dsp.layout("swapcol l"))
 hl.bind(mod2 .. "right", hl.dsp.layout("swapcol r"))
 hl.bind(mod .. "c", hl.dsp.layout("center"))
