@@ -42,8 +42,6 @@
       name = "toggle-display";
       text = builtins.readFile ./toggle-display.sh;
       runtimeInputs = with pkgs; [
-        hyprland
-        niri
         libnotify
       ];
     })
