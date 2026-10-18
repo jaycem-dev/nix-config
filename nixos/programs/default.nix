@@ -10,11 +10,6 @@
     virt-manager.enable = true;
     hyprland.enable = true;
 
-    niri = {
-      enable = true;
-      useNautilus = false;
-    };
-
     nh = {
       enable = true;
       flake = "/home/${user}/Projects/nix-config";

@@ -29,24 +29,6 @@
     })
 
     (pkgs.writeShellApplication {
-      name = "spawn-or-focus";
-      text = builtins.readFile ./spawn-or-focus.sh;
-      runtimeInputs = with pkgs; [
-        kitty
-        jq
-        brave-origin
-      ];
-    })
-
-    (pkgs.writeShellApplication {
-      name = "toggle-display";
-      text = builtins.readFile ./toggle-display.sh;
-      runtimeInputs = with pkgs; [
-        libnotify
-      ];
-    })
-
-    (pkgs.writeShellApplication {
       name = "brightness";
       text = builtins.readFile ./brightness.sh;
       runtimeInputs = with pkgs; [
@@ -80,7 +62,7 @@
       name = "set-wallpaper";
       text = builtins.readFile ./set-wallpaper.sh;
       runtimeInputs = with pkgs; [
-        wpaperd
+        hyprpaper
         file
         libnotify
       ];

@@ -40,7 +40,6 @@ in
     targets = {
       neovim.enable = !(theme ? neovim); # use theme colorscheme when set
       fzf.enable = false; # env variables only update on logout, not useful
-      hyprland.hyprpaper.enable = false; # stops stylix from enabling services.hyprpaper
     };
 
     opacity = {

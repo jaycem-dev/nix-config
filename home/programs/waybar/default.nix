@@ -25,8 +25,6 @@
       modules-left = [
         "hyprland/workspaces#main"
         "hyprland/workspaces#taskbar"
-        "niri/workspaces#main"
-        "niri/workspaces#taskbar"
       ];
 
       modules-center = [
@@ -62,15 +60,6 @@
           enable = true;
           update-active-window = true;
         };
-      };
-
-      "niri/workspaces#main" = {
-        format = "{index}";
-      };
-
-      "niri/workspaces#taskbar" = {
-        current-only = true;
-        workspace-taskbar.enable = true;
       };
 
       clock = {

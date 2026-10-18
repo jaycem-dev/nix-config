@@ -49,12 +49,3 @@ tooltip {
 #workspaces.taskbar button.taskbar-window.active {
     background-color: @base02;
 }
-
-/* niri */
-#workspaces.taskbar button .niri-taskbar-btn {
-    -gtk-icon-effect: dim;
-}
-#workspaces.taskbar button .niri-taskbar-btn.focused {
-    -gtk-icon-effect: highlight;
-    background-color: @base02;
-}

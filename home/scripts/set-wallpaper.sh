@@ -6,4 +6,4 @@ if ! file --mime-type "$path" | grep -q image/; then
     exit 1
 fi
 
-wpaperctl set "$path"
+hyprctl hyprpaper wallpaper ", $path"
