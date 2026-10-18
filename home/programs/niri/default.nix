@@ -3,6 +3,9 @@
 
   wayland.windowManager.niri = {
     enable = true;
+    package = null;
+    portalPackage = null;
+    systemd.enable = false;
     extraConfig = ''
       include optional=true "${config.xdg.configHome}/niri/kdl/main.kdl"
 

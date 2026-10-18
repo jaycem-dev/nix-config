@@ -10,6 +10,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
+    portalPackage = null;
     configType = "lua";
     settings.config.decoration.rounding = config.userSettings.theme.borderRadius;
     extraConfig = ''
