@@ -41,6 +41,10 @@
     zsh = {
       enable = true;
       defaultKeymap = "viins";
+      completionInit = ''
+        autoload -U compinit && compinit
+        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+      '';
       localVariables.KEYTIMEOUT = "1";
       historySubstringSearch.enable = true;
       syntaxHighlighting.enable = true;
