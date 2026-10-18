@@ -5,11 +5,6 @@
       exec = "brave-origin --app=https://open.spotify.com";
       icon = "spotify";
     };
-    "brave-web.whatsapp.com__-Default" = {
-      name = "WhatsApp";
-      exec = "brave-origin --app=https://web.whatsapp.com";
-      icon = "whatsapp";
-    };
     "brave-mail.proton.me__-Default" = {
       name = "Proton Mail";
       exec = "brave-origin --app=https://mail.proton.me";

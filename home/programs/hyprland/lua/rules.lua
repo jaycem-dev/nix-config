@@ -29,7 +29,7 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = utils.webapp_class("web.whatsapp.com") .. "|" .. utils.webapp_class("mail.proton.me"),
+        class = "zapfast" .. "|" .. utils.webapp_class("mail.proton.me"),
     },
     workspace = 4,
 })

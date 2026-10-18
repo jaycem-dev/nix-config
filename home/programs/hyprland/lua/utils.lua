@@ -38,7 +38,7 @@ function M.webapp_cmd(url)
 end
 
 ---Spawn or focus a Chromium-based webapp by URL.
----Eg. `spawn_or_focus_webapp("web.whatsapp.com")`
+---Eg. `spawn_or_focus_webapp("open.spotify.com")`
 ---@param url string
 ---@return function
 function M.spawn_or_focus_webapp(url)

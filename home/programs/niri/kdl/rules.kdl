@@ -50,7 +50,7 @@ window-rule {
 }
 // chat workspace apps
 window-rule {
-    match app-id=r#"brave-web.whatsapp.com__-Default"#
+    match app-id=r#"zapfast"#
     match app-id=r#"brave-mail.proton.me__-Default"#
     match app-id=r#"signal"#
     open-on-workspace "4"
