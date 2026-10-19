@@ -16,6 +16,7 @@
     udisks2.enable = true; # this is necessary for udiskie to work
     hardware.openrgb.enable = true;
     tumbler.enable = true; # thumbnails
+    gnome.gnome-keyring.enable = true;
 
     xserver.xkb = {
       layout = "us";

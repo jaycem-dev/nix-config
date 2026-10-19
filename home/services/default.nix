@@ -7,7 +7,6 @@
   services = {
     udiskie.enable = true;
     playerctld.enable = true;
-    gnome-keyring.enable = true;
     hyprpaper.enable = true;
     hyprsunset.enable = true;
     hyprpolkitagent.enable = true;
