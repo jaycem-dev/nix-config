@@ -9,7 +9,7 @@ hl.window_rule({
     keep_aspect_ratio = true,
     no_initial_focus = true,
     size = { 384, 216 },
-    move = { "monitor_w - 384 - 10", "10 + 30" },
+    move = { "monitor_w - 384 - 5", "5" },
 })
 
 hl.window_rule({
@@ -62,18 +62,21 @@ hl.window_rule({
 
 hl.workspace_rule({ workspace = "s[true]", gaps_out = 50 })
 
-hl.layer_rule({
-    name = "manual-blur",
-    match = { namespace = "notifications|launcher" },
-    blur = true,
-    xray = false,
-    ignore_alpha = 0.5,
-})
-
 -- scratchpads: auto-spawn once when empty special is first toggled
 hl.workspace_rule({ workspace = "special:scratch", on_created_empty = "kitty -1 --app-id scratch" })
 hl.workspace_rule({ workspace = "special:music", on_created_empty = utils.webapp_cmd("open.spotify.com") })
 hl.workspace_rule({
     workspace = "special:ai",
     on_created_empty = utils.tui_cmd({ cmd = "projects-picker opencode", class = "opencode" }),
+})
+
+hl.layer_rule({
+    name = "noctalia",
+    match = {
+        namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+    },
+    no_anim = true,
+    ignore_alpha = 0.5,
+    blur = true,
+    blur_popups = true,
 })

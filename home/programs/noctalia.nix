@@ -1,0 +1,96 @@
+{ config, lib, ... }:
+let
+  radius = config.userSettings.theme.borderRadius;
+  # TODO: look for a better way to scale this
+  radiusScale = if radius == 0 then 0 else 1;
+  opacity = config.userSettings.theme.opacity;
+in
+{
+  programs.noctalia = {
+    enable = true;
+    systemd.enable = true;
+    settings = {
+      brightness.enable_ddcutil = true;
+      dock.background_opacity = opacity;
+      location.auto_locate = true;
+      notification.background_opacity = opacity;
+      osd.background_opacity = opacity;
+      wallpaper.directory = "~/Pictures/Wallpapers";
+
+      bar.default = {
+        position = "bottom";
+        background_opacity = opacity;
+        margin_ends = 5;
+        margin_edge = 5;
+        # concave_edge_corners = false;
+        thickness = 30;
+        radius = radius;
+        capsule_radius = radius;
+
+        start = [
+          "notifications"
+          "clock"
+          "taskbar"
+        ];
+        center = [
+          "power_profile"
+          "workspaces"
+          "caffeine"
+        ];
+        end = [
+          "privacy"
+          "tray"
+          "network"
+          "bluetooth"
+          "volume"
+          "brightness"
+          "battery"
+        ];
+      };
+
+      idle = {
+        behavior = {
+          lock = {
+            action = "lock";
+            timeout = 180;
+          };
+          "lock-and-suspend" = {
+            action = "lock_and_suspend";
+            timeout = 300;
+          };
+          "screen-off" = {
+            action = "screen_off";
+            timeout = 120;
+          };
+        };
+      };
+
+      shell = {
+        corner_radius_scale = radiusScale;
+        launch_apps_as_systemd_services = true;
+        polkit_agent = true;
+        panel.transparency_mode = "soft";
+      };
+
+      widget = {
+        keyboard_layout.show_label = false;
+        media.hide_artist = true;
+        network.show_label = false;
+        tray.capsule = true;
+        privacy.hide_inactive = true;
+        clock.format = "{:%A %H:%M}";
+        taskbar = {
+          inactive_opacity = 0.6;
+          only_active_workspace = true;
+          scale = 1.3;
+          capsule = true;
+        };
+      };
+    };
+  };
+
+  # Clear GUI-managed overrides
+  home.activation.clearNoctaliaOverrides = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
+    run rm -f "${config.xdg.stateHome}/noctalia/settings.toml"
+  '';
+}
