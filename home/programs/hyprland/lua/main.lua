@@ -46,7 +46,7 @@ hl.config({
         blur = {
             enabled = true,
             xray = true,
-            size = 15,
+            size = 10,
             passes = 1,
         },
     },
@@ -59,7 +59,7 @@ hl.config({
 
     scrolling = {
         fullscreen_on_one_column = true,
-        column_width = 0.7,
+        column_width = 0.5,
         explicit_column_widths = "0.5, 0.7",
         wrap_focus = false,
         wrap_swapcol = false,
