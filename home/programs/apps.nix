@@ -14,7 +14,6 @@
     gimp
     proton-vpn
     jellyfin-desktop
-    kopuz
     localsend
     lollypop
     moonlight-qt
