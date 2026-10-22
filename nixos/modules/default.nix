@@ -10,6 +10,7 @@
   hardware.enableAllFirmware = true;
   fonts.enableDefaultPackages = true;
   security.pam.services.hyprlock = { };
+  environment.localBinInPath = true;
 
   # use xkb config for tty, early for luks prompt
   console = {

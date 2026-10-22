@@ -1,8 +1,8 @@
 # Nix Config
 
-My setup for NixOS and Home Manager (standalone).
+My setup for NixOS.
 
-I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboard.nix](./nixos/services/default.nix) and [hyprland](./home/programs/hyprland/lua/main.lua).
+I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboard.nix](./nixos/services/default.nix).
 
 > [!IMPORTANT]
 > New NixOS installs usually require copying `/etc/nixos/hardware-configuration.nix` to the host directory or you won't be able to boot.
@@ -11,10 +11,8 @@ I use Colemak-DH-ISO keyboard layout by default, you can change this in [keyboar
 
 Choose a `<host>` from one of the values below. (See my current configurations in [hosts](./hosts)
 
-| Nixos                              | Home Manager      |
-| ---------------------------------- | ----------------- |
-| desktop                            | jay@desktop       |
-| asahi (arm64, needs --impure flag) | jay@asahi (arm64) |
+- desktop                             
+- asahi (arm64, needs --impure flag) 
 
 ```bash
 # Clone this repo using nix-shell:
@@ -22,12 +20,9 @@ nix-shell -p git neovim --command "git clone https://github.com/jaycem-dev/nix-c
 
 # Modify config if necessary, then rebuild:
 sudo nixos-rebuild switch --flake .#<host>
-
-# Home Manager
-nix run home-manager -- switch --flake .#<host>
 ```
 
-The pkg [nh](https://github.com/nix-community/nh) is configured to use `~/Projects/nix-config` automatically, so after the initial rebuild you can use `nh os/home switch` from anywhere.
+The pkg [nh](https://github.com/nix-community/nh) is configured to use `~/Projects/nix-config` automatically, so after the initial rebuild you can use `nh os switch` from anywhere.
 
 ## Software
 

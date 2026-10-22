@@ -17,6 +17,7 @@
     hardware.openrgb.enable = true;
     tumbler.enable = true; # thumbnails
     gnome.gnome-keyring.enable = true;
+    playerctld.enable = true;
 
     xserver.xkb = {
       layout = "us";
