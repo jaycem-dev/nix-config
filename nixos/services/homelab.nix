@@ -77,17 +77,6 @@
           "Subsonic.AppendAlbumVersion" = false;
         };
       };
-
-      tdarr = {
-        enable = true;
-        group = "media";
-        server.openFirewall = true;
-
-        nodes.main.workers = {
-          transcodeCPU = 2;
-          healthcheckCPU = 1;
-        };
-      };
     };
 
     systemd = {
@@ -108,14 +97,6 @@
         bazarr.serviceConfig.UMask = lib.mkForce "0002";
         # allow reading from home dir
         navidrome.serviceConfig.ProtectHome = lib.mkForce "tmpfs";
-        # Tdarr node needs write access to /DATA
-        # Without this, ProtectSystem=strict blocks all writes outside the node's dataDir
-        "tdarr-node-main".serviceConfig = {
-          ReadWritePaths = [ "/DATA" ];
-        };
-        "tdarr-server".serviceConfig = {
-          ReadWritePaths = [ "/DATA" ];
-        };
       };
     };
   };
