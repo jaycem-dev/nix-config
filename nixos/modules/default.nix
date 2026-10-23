@@ -8,7 +8,6 @@
   ];
 
   hardware.enableAllFirmware = true;
-  fonts.enableDefaultPackages = true;
   security.pam.services.hyprlock = { };
   environment.localBinInPath = true;
 

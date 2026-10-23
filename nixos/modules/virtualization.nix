@@ -1,6 +1,4 @@
 { pkgs, ... }:
-# https://wiki.nixos.org/wiki/Virt-manager
-# https://wiki.nixos.org/wiki/Podman
 {
   virtualisation = {
     containers.enable = true;
