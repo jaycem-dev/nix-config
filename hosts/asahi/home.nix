@@ -4,7 +4,7 @@
 
   userSettings = {
     theme = {
-      # name = "gruvbox-dark-medium";
+      name = "vesper";
       # opacity = 0.95;
       # borderRadius = 10;
     };

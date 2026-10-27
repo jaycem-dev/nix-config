@@ -3,9 +3,9 @@
 
   userSettings = {
     theme = {
-      # name = "gruvbox-dark-medium";
-      # opacity = 0.95;
-      # borderRadius = 5;
+      name = "vesper";
+      # opacity = 0.9;
+      # borderRadius = 10;
     };
   };
 }
