@@ -64,7 +64,7 @@ hl.workspace_rule({ workspace = "s[true]", gaps_out = 50 })
 
 -- scratchpads: auto-spawn once when empty special is first toggled
 hl.workspace_rule({ workspace = "special:scratch", on_created_empty = "kitty -1 --app-id scratch" })
-hl.workspace_rule({ workspace = "special:music", on_created_empty = utils.webapp_cmd("open.spotify.com") })
+hl.workspace_rule({ workspace = "special:music", on_created_empty = utils.webapp_cmd("music.youtube.com") })
 hl.workspace_rule({
     workspace = "special:ai",
     on_created_empty = utils.tui_cmd({ cmd = "projects-picker opencode", class = "opencode" }),
