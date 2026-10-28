@@ -47,6 +47,7 @@ hl.bind(mod .. "space", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind(mod .. "p", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 hl.bind(mod2 .. "b", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 hl.bind(mod .. "i", hl.dsp.exec_cmd("noctalia msg notification-invoke-latest"))
+hl.bind(mod .. "d", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
 hl.bind(mod2 .. "q", hl.dsp.exec_cmd("hyprshutdown"))
 hl.bind(mod2 .. "s", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
 
