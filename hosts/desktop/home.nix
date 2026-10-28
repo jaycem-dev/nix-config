@@ -4,8 +4,8 @@
   userSettings = {
     theme = {
       name = "vesper";
-      # opacity = 0.9;
-      # borderRadius = 10;
+      opacity = 0.9;
+      borderRadius = 10;
     };
   };
 }

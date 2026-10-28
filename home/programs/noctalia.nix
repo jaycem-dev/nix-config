@@ -18,11 +18,11 @@ in
       wallpaper.directory = "~/Pictures/Wallpapers";
 
       bar.default = {
-        position = "bottom";
+        position = "left";
         background_opacity = opacity;
         margin_ends = 5;
         margin_edge = 5;
-        # concave_edge_corners = false;
+        concave_edge_corners = false;
         thickness = 30;
         radius = radius;
         capsule_radius = radius;
@@ -78,11 +78,11 @@ in
         network.show_label = false;
         tray.capsule = true;
         privacy.hide_inactive = true;
-        clock.format = "{:%A %H:%M}";
+        # clock.format = "{:%A %H:%M}";
         taskbar = {
           inactive_opacity = 0.6;
           only_active_workspace = true;
-          scale = 1.3;
+          scale = 1.2;
           capsule = true;
         };
       };
