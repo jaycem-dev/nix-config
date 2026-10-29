@@ -9,6 +9,8 @@ let
   };
 in
 {
+  stylix.targets.opencode.enable = false;
+
   programs = {
     antigravity-cli = {
       enable = true;
@@ -51,9 +53,9 @@ in
     opencode = {
       enable = true;
       inherit skills;
-      tui.attention = {
-        enabled = true;
-        sound = false;
+      cli = {
+        theme.name = "system";
+        attention.notification = true;
       };
       settings = {
         permission = {

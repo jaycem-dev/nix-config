@@ -62,13 +62,22 @@ hl.window_rule({
 
 hl.workspace_rule({ workspace = "s[true]", gaps_out = 50 })
 
--- scratchpads: auto-spawn once when empty special is first toggled
-hl.workspace_rule({ workspace = "special:scratch", on_created_empty = "kitty -1 --app-id scratch" })
-hl.workspace_rule({ workspace = "special:music", on_created_empty = utils.webapp_cmd("music.youtube.com") })
-hl.workspace_rule({
-    workspace = "special:ai",
-    on_created_empty = utils.tui_cmd({ cmd = "projects-picker opencode", class = "opencode" }),
-})
+-- scratchpads https://wiki.hypr.land/configuring/code-snippets/#launching-programs-on-workspace-creation
+local workspace_programs = {
+    ["special:scratch"] = "kitty -1 --app-id scratch",
+    ["special:music"] = utils.webapp_cmd("music.youtube.com"),
+    ["special:ai"] = utils.tui_cmd({ cmd = "projects-picker opencode", class = "opencode" }),
+}
+hl.on("workspace.created", function(ws)
+    local cmd = workspace_programs[ws.name]
+    if not cmd then
+        return
+    end
+    hl.exec_cmd(cmd, {
+        -- FIXME: this doesn't seem to work
+        workspace = ws.name .. " silent",
+    })
+end)
 
 hl.layer_rule({
     name = "noctalia",

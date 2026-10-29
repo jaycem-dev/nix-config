@@ -1,9 +1,7 @@
 {
   boot = {
     plymouth.enable = true; # boot animation
-    initrd.systemd.enable = true; # luks gui support
     consoleLogLevel = 0; # silent boot
-    initrd.verbose = false;
     kernelModules = [ "ntsync" ];
 
     loader = {
