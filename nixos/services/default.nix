@@ -1,6 +1,7 @@
 {
   lib,
   user,
+  pkgs,
   ...
 }:
 {
@@ -23,13 +24,19 @@
       variant = "colemak_dh_iso";
     };
 
-    displayManager = {
-      ly.enable = true;
-      defaultSession = "hyprland";
-
-      autoLogin = {
-        enable = true;
-        user = user;
+    greetd = {
+      enable = true;
+      useTextGreeter = true;
+      settings = {
+        default_session = {
+          user = "greeter";
+          command = lib.getExe' pkgs.tuigreet "tuigreet";
+        };
+        # autologin
+        initial_session = {
+          user = user;
+          command = lib.getExe' pkgs.hyprland "start-hyprland";
+        };
       };
     };
 
