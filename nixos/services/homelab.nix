@@ -86,7 +86,9 @@
         "d /DATA/Shows 2775 ${user} media -"
         "d /DATA/Movies 2775 ${user} media -"
         "d /DATA/Peliculas 2775 ${user} media -"
+        "d /DATA/Series 2775 ${user} media -"
         "d /DATA/Downloads 2775 ${user} media -"
+        "d /DATA/Videos 2775 ${user} media -"
       ];
 
       services = {
