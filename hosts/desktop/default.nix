@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./filesystem.nix
+    ./wakealarm.nix
     ../../nixos
   ];
 
@@ -15,7 +16,6 @@
     enable = true;
     openFirewall = true;
     capSysAdmin = true; # KMS/DRM capture, no portal needed
-    settings.capture = "kms"; # force KMS
   };
 
   hardware = {
