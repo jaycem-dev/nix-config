@@ -16,6 +16,7 @@ in
       notification.background_opacity = opacity;
       osd.background_opacity = opacity;
       wallpaper.directory = "~/Pictures/Wallpapers";
+      bluetooth.connection_notifications = false;
 
       bar.default = {
         position = "left";
@@ -78,7 +79,8 @@ in
         network.show_label = false;
         tray.capsule = true;
         privacy.hide_inactive = true;
-        # clock.format = "{:%A %H:%M}";
+        workspaces.occupied_color = "surface_container_highest";
+
         taskbar = {
           inactive_opacity = 0.6;
           only_active_workspace = true;
