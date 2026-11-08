@@ -16,6 +16,9 @@ Choose a `<host>` from one of the values below. (See my current configurations i
 | desktop                            | jay@desktop       |
 | asahi (arm64, needs --impure flag) | jay@asahi (arm64) |
 
+The asahi host uses [Aurora NixOS](https://github.com/aurora-silicon/nixos-aurora) and its pinned
+nixpkgs/hardware stack; the desktop host stays on `nixos-unstable`.
+
 ```bash
 # Clone this repo using nix-shell:
 nix-shell -p git neovim --command "git clone https://github.com/jaycem-dev/nix-config ~/Projects/nix-config && cd ~/Projects/nix-config; return"

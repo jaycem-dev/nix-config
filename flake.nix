@@ -3,7 +3,12 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+
+    # Apple Silicon hardware stack (kernel, Mesa, audio, firmware) and its
+    # pinned nixos-apple-silicon module. channel-testing is the branch Aurora
+    # publishes a signed binary cache for.
+    aurora.url = "github:aurora-silicon/nixos-aurora/channel-testing";
+
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:nix-community/stylix";
     caveman = {
@@ -13,14 +18,22 @@
   };
 
   nixConfig = {
-    extra-substituters = [ "https://nix-community.cachix.org" ];
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://aurorasilicon.org/nixos-aurora/cache"
+    ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "aurora-nixos-1:ZxmPNEWsrzgXai+W+dlTE8cachb1xaatfXKK8X8go14="
     ];
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    {
+      nixpkgs,
+      aurora,
+      ...
+    }@inputs:
     let
       user = "jay";
       commonArgs = { inherit inputs user; };
@@ -38,10 +51,15 @@
           specialArgs = commonArgs;
           modules = [ ./hosts/desktop ];
         };
-        asahi = nixpkgs.lib.nixosSystem {
+        asahi = aurora.inputs.nixpkgs.lib.nixosSystem {
           system = systems.linux-arm;
           specialArgs = commonArgs;
-          modules = [ ./hosts/asahi ];
+          modules = [
+            aurora.inputs.apple-silicon.nixosModules.default
+            aurora.nixosModules.default
+            { nixpkgs.overlays = [ aurora.overlays.default ]; }
+            ./hosts/asahi
+          ];
         };
       };
 
@@ -52,7 +70,7 @@
           modules = [ ./hosts/desktop/home.nix ];
         };
         "${user}@asahi" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${systems.linux-arm};
+          pkgs = aurora.inputs.nixpkgs.legacyPackages.${systems.linux-arm};
           extraSpecialArgs = commonArgs;
           modules = [ ./hosts/asahi/home.nix ];
         };

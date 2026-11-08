@@ -10,8 +10,8 @@
     };
   };
 
-  # asahi needs --impure to build
-  home.shellAliases.ns = lib.mkForce "nh os switch --impure";
+  # asahi needs --impure to build; accept Aurora's cache from the flake config
+  home.shellAliases.ns = lib.mkForce "nh os switch --impure --accept-flake-config";
 
   # asahi display issue workaround
   wayland.windowManager.hyprland.extraConfig = ''
