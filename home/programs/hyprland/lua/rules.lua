@@ -24,7 +24,7 @@ hl.window_rule({
     workspace = 1,
 })
 hl.window_rule({
-    match = { class = "nvim" },
+    match = { class = "nvim|kitty" },
     workspace = 2,
 })
 hl.window_rule({

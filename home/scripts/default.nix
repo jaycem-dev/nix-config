@@ -10,6 +10,17 @@
     })
 
     (pkgs.writeShellApplication {
+      name = "kitty-sessions";
+      text = builtins.readFile ./kitty-sessions.sh;
+      runtimeInputs = with pkgs; [
+        fd
+        fzf
+        kitty
+        libnotify
+      ];
+    })
+
+    (pkgs.writeShellApplication {
       name = "tmux-sessions";
       text = builtins.readFile ./sessions.sh;
       runtimeInputs = with pkgs; [

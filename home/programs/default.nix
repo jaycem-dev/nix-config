@@ -3,12 +3,12 @@
     ./neovim
     ./hyprland
     ./stylix
+    ./kitty
     ./beets.nix
     ./browser.nix
     ./desktop-items.nix
     ./gaming.nix
     ./sh.nix
-    ./terminal.nix
     ./tmux.nix
     ./apps.nix
     ./cli.nix
