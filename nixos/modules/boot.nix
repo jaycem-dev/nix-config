@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   boot = {
     plymouth.enable = true; # boot animation
@@ -5,8 +6,8 @@
     kernelModules = [ "ntsync" ];
 
     loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = lib.mkDefault true;
+      efi.canTouchEfiVariables = lib.mkDefault true;
     };
 
     kernelParams = [

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
-    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    aurora.url = "github:aurora-silicon/nixos-aurora/channel-testing";
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:nix-community/stylix";
     caveman = {
@@ -13,17 +13,21 @@
   };
 
   nixConfig = {
-    extra-substituters = [ "https://nix-community.cachix.org" ];
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://aurorasilicon.org/nixos-aurora/cache"
+    ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "aurora-nixos-1:ZxmPNEWsrzgXai+W+dlTE8cachb1xaatfXKK8X8go14="
     ];
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    { nixpkgs, aurora, ... }@inputs:
     let
       user = "jay";
-      commonArgs = { inherit inputs user; };
+      commonArgs = { inherit inputs user aurora; };
 
       systems = {
         linux-arm = "aarch64-linux";
@@ -38,7 +42,7 @@
           specialArgs = commonArgs;
           modules = [ ./hosts/desktop ];
         };
-        asahi = nixpkgs.lib.nixosSystem {
+        asahi = aurora.inputs.nixpkgs.lib.nixosSystem {
           system = systems.linux-arm;
           specialArgs = commonArgs;
           modules = [ ./hosts/asahi ];
