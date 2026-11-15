@@ -3,6 +3,7 @@
     ./boot.nix
     ./network.nix
     ./options.nix
+    ./portal.nix
     ./users.nix
     ./virtualization.nix
   ];
