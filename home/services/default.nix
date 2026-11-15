@@ -3,6 +3,7 @@
     udiskie.enable = true;
     playerctld.enable = true;
     hyprsunset.enable = true;
+    kdeconnect.enable = true;
 
     syncthing = {
       enable = true;

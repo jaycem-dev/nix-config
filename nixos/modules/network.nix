@@ -12,7 +12,7 @@
       dns = "none"; # we are using dnsproxy for the dns
     };
 
-    firewall = {
+    firewall = rec {
       enable = true;
       trustedInterfaces = [ "virbr0" ]; # libvirt network
       allowedTCPPorts = [
@@ -22,6 +22,14 @@
       allowedUDPPorts = [
         53317 # localsend
       ];
+      # kdeconnect
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        }
+      ];
+      allowedUDPPortRanges = allowedTCPPortRanges;
     };
   };
 }
