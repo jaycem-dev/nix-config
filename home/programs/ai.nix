@@ -53,9 +53,10 @@ in
     opencode = {
       enable = true;
       inherit skills;
+      mutableSettings = true;
       cli = {
         theme.name = "system";
-        attention.notification = true;
+        attention.notifications = true;
       };
       settings = {
         permission = {
