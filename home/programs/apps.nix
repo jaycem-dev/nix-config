@@ -11,7 +11,8 @@
   home.packages = with pkgs; [
     zapfast
     ente-desktop
-    gimp
+    photocraft
+    vectorcraft
     proton-vpn
     jellyfin-desktop
     localsend
