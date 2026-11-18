@@ -55,10 +55,6 @@ in
             action = "lock";
             timeout = 180;
           };
-          "lock-and-suspend" = {
-            action = "lock_and_suspend";
-            timeout = 300;
-          };
           "screen-off" = {
             action = "screen_off";
             timeout = 120;

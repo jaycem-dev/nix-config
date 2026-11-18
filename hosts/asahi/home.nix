@@ -10,6 +10,11 @@
     };
   };
 
+  programs.noctalia.settings.idle.behavior."lock-and-suspend" = {
+    action = "lock_and_suspend";
+    timeout = 300;
+  };
+
   # asahi needs --impure to build
   home.shellAliases.ns = lib.mkForce "nh os switch --impure";
 
