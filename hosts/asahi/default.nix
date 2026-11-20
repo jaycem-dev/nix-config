@@ -5,6 +5,7 @@
     aurora.nixosModules.default
     aurora.nixosModules.installed
     ./hardware-configuration.nix
+    ./fex-rootfs.nix
     ../../nixos
   ];
 
@@ -17,8 +18,12 @@
   zramSwap.enable = true;
   networking.hostName = "asahi";
   system.stateVersion = "25.05";
-  programs.steam.enable = true;
   environment.systemPackages = [ pkgs.fex ];
+
+  programs.steam = {
+    enable = true;
+    package = pkgs.steam.override { proton = null; };
+  };
 
   boot.loader = {
     systemd-boot.enable = false;
