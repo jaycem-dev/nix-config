@@ -25,10 +25,9 @@ open_session() {
     'new_tab editor' \
     "cd $1" \
     'launch nvim .' \
-    '' \
     'new_tab terminal' \
     "cd $1" \
-    'launch bash' \
+    'launch' \
     >"$file" || return 1
 
   if running; then
@@ -62,10 +61,10 @@ case "${1:-}" in
       # Overlay the picker on the current window. It exits after switching
       # sessions, which closes the overlay.
       kitten @ --to "$SOCKET" launch --type=overlay --title "kitty-sessions" \
-        --env "PATH=$PATH" bash "$self" --pick
+        "$self" --pick
     else
       # No sessionizer yet: start one with the picker as its first window.
-      kitty --detach --listen-on "$SOCKET" bash "$self" --pick
+      kitty --detach --listen-on "$SOCKET" "$self" --pick
     fi
     ;;
   *)
