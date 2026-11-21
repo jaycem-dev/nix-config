@@ -19,24 +19,26 @@ in
       bluetooth.connection_notifications = false;
 
       bar.default = {
-        position = "left";
+        position = "top";
         background_opacity = opacity;
-        margin_ends = 5;
-        margin_edge = 5;
+        margin_ends = 0;
+        margin_edge = 0;
+        padding = 5;
         concave_edge_corners = false;
-        thickness = 30;
-        radius = radius;
+        thickness = 25;
+        radius = 0;
         capsule_radius = radius;
 
         start = [
-          "notifications"
-          "clock"
+          "workspaces"
           "taskbar"
         ];
         center = [
+          "notifications"
           "power_profile"
-          "workspaces"
+          "clock"
           "caffeine"
+          "launcher"
         ];
         end = [
           "privacy"
@@ -73,9 +75,10 @@ in
         keyboard_layout.show_label = false;
         media.hide_artist = true;
         network.show_label = false;
-        tray.capsule = true;
+        tray.drawer = true;
         privacy.hide_inactive = true;
         workspaces.occupied_color = "surface_container_highest";
+        clock.format = "%A %H:%M";
 
         taskbar = {
           inactive_opacity = 0.6;
