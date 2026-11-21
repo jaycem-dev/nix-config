@@ -9,7 +9,7 @@ hl.window_rule({
     keep_aspect_ratio = true,
     no_initial_focus = true,
     size = { 384, 216 },
-    move = { "monitor_w - 384 - 5", "5" },
+    move = { "monitor_w - 384 - 5", "5 + 25" },
 })
 
 hl.window_rule({
