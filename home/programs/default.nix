@@ -7,6 +7,7 @@
     ./beets.nix
     ./browser.nix
     ./desktop-items.nix
+    ./flatpak.nix
     ./gaming.nix
     ./sh.nix
     ./tmux.nix

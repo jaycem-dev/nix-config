@@ -5,6 +5,7 @@
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     aurora.url = "github:aurora-silicon/nixos-aurora/channel-testing";
     home-manager.url = "github:nix-community/home-manager";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     stylix.url = "github:nix-community/stylix";
     caveman = {
       url = "github:JuliusBrussee/caveman/v2.6.0";

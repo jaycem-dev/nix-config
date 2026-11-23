@@ -20,7 +20,7 @@ hl.window_rule({
 
 -- workspace assignment
 hl.window_rule({
-    match = { class = "brave-origin" },
+    match = { class = "brave-origin|org.ladybird.Ladybird" },
     workspace = 1,
 })
 hl.window_rule({

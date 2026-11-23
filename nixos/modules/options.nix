@@ -3,6 +3,7 @@
   time.timeZone = "America/Santiago";
   i18n.extraLocaleSettings.LC_TIME = "en_GB.UTF-8"; # monday as 1st week day
   hardware.i2c.enable = true; # ddcutil req
+  services.flatpak.enable = true;
 
   nix.settings = {
     auto-optimise-store = true;
