@@ -30,8 +30,8 @@
 
       keybindings = {
         "kitty_mod+t" = "launch_tab";
-        "kitty_mod+g" = "launch_tab --tab-title git lazygit";
-        "kitty_mod+a" = "launch_tab --tab-title opencode opencode";
+        "kitty_mod+g" = "launch_tab --tab-title git --focus-existing=@title lazygit";
+        "kitty_mod+a" = "launch_tab --tab-title opencode --focus-existing=@title opencode";
       };
     };
   };
