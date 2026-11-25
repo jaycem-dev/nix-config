@@ -32,7 +32,12 @@
     # The macOS ESP is only ~476 MiB. GRUB has to copy each generation's
     # kernel + initrd there (root is LUKS, so it can't read /nix/store).
     # Keep just the current and one previous generation.
-    grub.configurationLimit = 2;
+    grub = {
+      configurationLimit = 2;
+      # Aurora hides GRUB by default; show the menu
+      timeout = 1;
+      timeoutStyle = "menu";
+    };
   };
 
   hardware = {
