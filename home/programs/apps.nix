@@ -25,6 +25,7 @@
     signal-desktop
     transmission_4-gtk
     qalculate-gtk
+    anomaly-hex
 
     # file manager
     (thunar.override {

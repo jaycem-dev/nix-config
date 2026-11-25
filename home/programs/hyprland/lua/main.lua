@@ -1,6 +1,11 @@
 require("lua.keybinds")
 require("lua.rules")
 
+-- Start Hex's dictation listener with the session
+hl.on("hyprland.start", function()
+    hl.exec_cmd("hex start")
+end)
+
 -- Speed up global animation and use vertical workspace transition
 hl.animation({ leaf = "global", enabled = true, speed = 4, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 4, bezier = "default", style = "slidevert" })
