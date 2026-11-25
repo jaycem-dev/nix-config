@@ -18,6 +18,13 @@
   zramSwap.enable = true;
   networking.hostName = "asahi";
   system.stateVersion = "25.05";
+
+  services.logind.settings.Login = {
+    HandleLidSwitch = "poweroff";
+    HandleLidSwitchExternalPower = "poweroff";
+    HandleLidSwitchDocked = "poweroff";
+  };
+
   environment.systemPackages = [ pkgs.fex ];
 
   programs.steam = {
