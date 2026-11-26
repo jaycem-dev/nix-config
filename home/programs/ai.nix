@@ -14,6 +14,7 @@ in
   programs = {
     antigravity-cli = {
       enable = true;
+      mutableSettings = true;
       inherit skills;
       permissions = {
         allow = [
@@ -35,6 +36,7 @@ in
     };
     codex = {
       enable = true;
+      mutableSettings = true;
       inherit skills;
       settings = {
         analytics.enabled = false;
