@@ -17,7 +17,6 @@ vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "Buffers" })
 -- vim.keymap.set("n", "<leader>/", "<cmd>Pick grep_live<cr>", { desc = "Live grep" })
 
 -- misc
-vim.keymap.set("n", "<leader><leader>", "<cmd>Pick resume<cr>", { desc = "Resume" })
 vim.keymap.set("n", "<leader>fo", "<cmd>Pick oldfiles<cr>", { desc = "Old files" })
 
 -- LSP
