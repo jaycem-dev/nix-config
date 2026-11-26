@@ -64,7 +64,7 @@ hl.workspace_rule({ workspace = "s[true]", gaps_out = 50 })
 
 -- scratchpads https://wiki.hypr.land/configuring/code-snippets/#launching-programs-on-workspace-creation
 local workspace_programs = {
-    ["special:scratch"] = "kitty -1 --app-id scratch",
+    ["special:scratch"] = "kitty -1 -o tab_bar_min_tabs=2 --app-id scratch",
     ["special:music"] = utils.webapp_cmd("open.spotify.com"),
 }
 hl.on("workspace.created", function(ws)
