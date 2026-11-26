@@ -66,7 +66,6 @@ hl.workspace_rule({ workspace = "s[true]", gaps_out = 50 })
 local workspace_programs = {
     ["special:scratch"] = "kitty -1 --app-id scratch",
     ["special:music"] = utils.webapp_cmd("open.spotify.com"),
-    ["special:ai"] = utils.tui_cmd({ cmd = "projects-picker opencode", class = "opencode" }),
 }
 hl.on("workspace.created", function(ws)
     local cmd = workspace_programs[ws.name]
