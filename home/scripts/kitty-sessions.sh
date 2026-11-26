@@ -2,13 +2,24 @@
 
 dir="${KITTY_SESSIONS_DIR:-$HOME/Projects}"
 CACHE_DIR="${KITTY_SESSIONS_CACHE:-$HOME/.cache/kitty-sessions}"
-SOCKET="${KITTY_SESSIONS_SOCKET:-unix:@kitty-sessions}"
+SOCKET="${KITTY_SESSIONS_SOCKET:-unix:@sessions}"
 self=$(readlink -f "$0")
 
 mkdir -p "$CACHE_DIR"
 
 notify_error() { notify-send -u normal "Kitty Sessionizer" "Failed to open session: $1"; }
 running() { kitten @ --to "$SOCKET" ls &>/dev/null; }
+
+open_session_file() {
+  local file=$1
+  if running; then
+    # goto_session focuses the session's tabs if it is already open,
+    # otherwise loads them into the existing window.
+    kitten @ --to "$SOCKET" action goto_session "$file"
+  else
+    kitty --session "$file" --detach --listen-on "$SOCKET"
+  fi
+}
 
 # Write the session file for the project at $1 and open it: switch to its
 # tabs if the sessionizer is already running, otherwise start one with it.
@@ -30,13 +41,18 @@ open_session() {
     'launch' \
     >"$file" || return 1
 
-  if running; then
-    # goto_session focuses the session's tabs if it is already open,
-    # otherwise loads them into the existing window.
-    kitten @ --to "$SOCKET" action goto_session "$file"
-  else
-    kitty --session "$file" --detach --listen-on "$SOCKET"
-  fi
+  open_session_file "$file"
+}
+
+open_home() {
+  local file="$CACHE_DIR/home"
+
+  printf '%s\n' \
+    'cd ~' \
+    'launch' \
+    >"$file" || return 1
+
+  open_session_file "$file"
 }
 
 pick_and_open() {
@@ -53,6 +69,9 @@ case "${1:-}" in
     # Runs inside the overlay window (or the first window of a fresh
     # instance). Exiting closes the overlay, revealing the picked session.
     pick_and_open
+    ;;
+  --home)
+    open_home || notify_error "home"
     ;;
   '')
     if running; then
