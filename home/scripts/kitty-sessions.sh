@@ -84,7 +84,7 @@ pick_and_open() {
     session=${session//./_}
     known["$session"]=1
     label=${path##*/}
-    [[ $path == "$HOME" ]] && label='~'
+    [[ $path == "$HOME" ]] && label='home'
     if [[ ${active[$session]+yes} ]]; then
       active_rows+=("$path"$'\t'"$label  󰧞")
     else

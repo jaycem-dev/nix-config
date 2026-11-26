@@ -54,16 +54,15 @@ hl.bind(mod2 .. "q", hl.dsp.exec_cmd("hyprshutdown"))
 hl.bind(mod2 .. "s", hl.dsp.exec_cmd("noctalia msg screenshot-annotate"))
 
 hl.bind(mod .. "e", utils.spawn_or_focus_tui("yazi"))
-hl.bind(mod .. "n", hl.dsp.exec_cmd("kitty-sessions --app nvim ."))
-hl.bind(mod .. "a", hl.dsp.exec_cmd("kitty-sessions --app opencode"))
-hl.bind(mod .. "k", hl.dsp.exec_cmd("kitty-sessions"))
-hl.bind(mod2 .. "n", hl.dsp.exec_cmd(utils.tui_cmd({ cmd = "projects-picker nvim", class = "nvim" })))
 hl.bind(mod .. "g", utils.spawn_or_focus("steam"))
 hl.bind(mod .. "b", utils.spawn_or_focus("brave-origin"))
--- Start the terminal via kitty-sessions --home so it listens on the sessionizer
-hl.bind(mod .. "t", utils.spawn_or_focus({ cmd = "kitty-sessions --home", class = "kitty" }))
 hl.bind(mod .. "w", utils.spawn_or_focus("zapfast"))
 hl.bind(mod2 .. "m", utils.spawn_or_focus_webapp("mail.proton.me"))
+-- Focus or create the session's tab; starts a Home session if Kitty isn't running.
+hl.bind(mod .. "k", hl.dsp.exec_cmd("kitty-sessions"))
+hl.bind(mod .. "t", hl.dsp.exec_cmd("kitty-sessions --app terminal zsh"))
+hl.bind(mod .. "n", hl.dsp.exec_cmd("kitty-sessions --app nvim ."))
+hl.bind(mod .. "a", hl.dsp.exec_cmd("kitty-sessions --app opencode"))
 
 for i = 1, 9 do
     hl.bind(mod .. i, hl.dsp.focus({ workspace = i }))
@@ -73,7 +72,6 @@ end
 -- scratchpads (auto-spawned via on_created_empty in rules.lua)
 hl.bind(mod .. "s", hl.dsp.workspace.toggle_special("scratch"))
 hl.bind(mod .. "m", hl.dsp.workspace.toggle_special("music"))
-hl.bind(mod2 .. "a", hl.dsp.workspace.toggle_special("ai"))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mod .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
