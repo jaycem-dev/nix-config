@@ -56,9 +56,19 @@ open_home() {
 }
 
 pick_and_open() {
-  local name
-  name=$(fd -t d . "$dir" --max-depth 1 --format '{/}' |
-    fzf --reverse --prompt="session> " \
+  local name session active active_session active_sessions
+  if running; then
+    active_sessions=$(kitten @ --to "$SOCKET" ls --match-tab 'session:.*' 2>/dev/null |
+      jq -r '.. | objects | .session_name? // empty' | sort -u)
+  fi
+  name=$(while IFS= read -r session; do
+    active=
+    while IFS= read -r active_session; do
+      [[ $active_session == "${session//./_}" ]] && { active=' 󰧞'; break; }
+    done <<< "$active_sessions"
+    printf '%s\t%s%s\n' "$session" "$session" "$active"
+  done < <(fd -t d . "$dir" --max-depth 1 --format '{/}') |
+    fzf --reverse --delimiter=$'\t' --with-nth=2 --accept-nth=1 --prompt="session> " \
       --bind 'enter:accept-or-print-query')
   [[ -z $name ]] && exit 0
   open_session "$dir/$name" || notify_error "$name"
