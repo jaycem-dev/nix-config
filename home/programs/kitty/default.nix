@@ -19,6 +19,7 @@
         tab_bar_filter = "session:~ or session:^$";
         allow_remote_control = "socket-only";
         enable_audio_bell = false;
+        tab_bar_min_tabs = 1;
         update_check_interval = 0;
         background_blur = 1;
       };
