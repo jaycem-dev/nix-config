@@ -21,13 +21,12 @@ in
       diffview-nvim
       flash-nvim
       friendly-snippets
+      fzf-lua
       mini-ai
       mini-diff
-      mini-extra
       mini-git
       mini-icons
       mini-pairs
-      mini-pick
       mini-statusline
       mini-surround
       neogit
@@ -37,7 +36,12 @@ in
       oil-nvim
       render-markdown-nvim
       which-key-nvim
-      fff-nvim
+    ];
+
+    extraPackages = with pkgs; [
+      fd
+      fzf
+      ripgrep
     ];
 
     initLua = ''
