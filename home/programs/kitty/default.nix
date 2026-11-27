@@ -15,7 +15,7 @@
         shell = lib.getExe pkgs.zsh;
         cursor_trail = 1;
         tab_bar_edge = "top";
-        tab_title_template = "{'[' + session_name + '] ' if session_name else ''}{title}";
+        tab_title_template = "{'[' + session_name + '] ' if session_name and index == 1 else ''}{title}";
         tab_bar_filter = "session:~ or session:^$";
         allow_remote_control = "socket-only";
         enable_audio_bell = false;
